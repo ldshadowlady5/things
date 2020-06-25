@@ -9,13 +9,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
-import static com.ldshadowlady.things.Things.modid;
+import static com.ldshadowlady.things.Things.ID;
 
 public final class ThingsItems {
     private ThingsItems() {
     }
 
-    public static final DeferredRegister<Item> REG = new DeferredRegister<>(ForgeRegistries.ITEMS, modid);
+    public static final DeferredRegister<Item> REG = new DeferredRegister<>(ForgeRegistries.ITEMS, ID);
 
 
     public static final RegistryObject<ThingsBlockItem> GRAVESTONE_MOON = REG.register("gravestone_moon", ThingsItems.createBlockRotationalItem(ThingsBlocks.GRAVESTONE_MOON));

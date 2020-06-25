@@ -7,12 +7,12 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.ldshadowlady.things.Things.modid;
+import static com.ldshadowlady.things.Things.ID;
 
 public final class ThingsBlocks {
     private ThingsBlocks() {}
 
-    public static final DeferredRegister<Block> REG = new DeferredRegister<>(ForgeRegistries.BLOCKS, modid);
+    public static final DeferredRegister<Block> REG = new DeferredRegister<>(ForgeRegistries.BLOCKS, ID);
 
 
     public static final RegistryObject<BlockRotational> GRAVESTONE_MOON = REG.register("gravestone_moon", () -> new BlockRotational(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE), Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D)));

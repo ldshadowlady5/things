@@ -8,9 +8,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(Things.modid)
+@Mod(Things.ID)
 public class Things {
-    public static final String modid = "lizziesthings";
+    public static final String ID = "lizziesthings";
 
     private static final Logger LOGGER = LogManager.getLogger();
 
