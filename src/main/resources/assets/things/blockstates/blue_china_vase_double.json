@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "things:block/blue_china_vase_double" },
+    "facing=south": { "model": "things:block/blue_china_vase_double", "y": 180, "uvlock": false},
+    "facing=east": { "model": "things:block/blue_china_vase_double", "y": 90, "uvlock": false},
+    "facing=west": { "model": "things:block/blue_china_vase_double", "y": 270, "uvlock": false}
+  }
+}

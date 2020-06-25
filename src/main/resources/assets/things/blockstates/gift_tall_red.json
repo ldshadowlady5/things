@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "rotation=0": { "model": "things:block/gift_tall_red"},
+    "rotation=1": { "model": "things:block/gift_tall_red_1"},
+    "rotation=2": { "model": "things:block/gift_tall_red_2"},
+    "rotation=3": { "model": "things:block/gift_tall_red_3"},
+    "rotation=4": { "model": "things:block/gift_tall_red", "y": 90, "uvlock": false},
+    "rotation=5": { "model": "things:block/gift_tall_red_1", "y": 90, "uvlock": false},
+    "rotation=6": { "model": "things:block/gift_tall_red_2", "y": 90, "uvlock": false},
+    "rotation=7": { "model": "things:block/gift_tall_red_3", "y": 90, "uvlock": false},
+    "rotation=8": { "model": "things:block/gift_tall_red", "y": 180, "uvlock": false},
+    "rotation=9": { "model": "things:block/gift_tall_red_1", "y": 180, "uvlock": false},
+    "rotation=10": { "model": "things:block/gift_tall_red_2", "y": 180, "uvlock": false},
+    "rotation=11": { "model": "things:block/gift_tall_red_3", "y": 180, "uvlock": false},
+    "rotation=12": { "model": "things:block/gift_tall_red", "y": 270, "uvlock": false},
+    "rotation=13": { "model": "things:block/gift_tall_red_1", "y": 270, "uvlock": false},
+    "rotation=14": { "model": "things:block/gift_tall_red_2", "y": 270, "uvlock": false},
+    "rotation=15": { "model": "things:block/gift_tall_red_3", "y": 270, "uvlock": false}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "things:block/red_celebration_vase_tall" },
+    "facing=south": { "model": "things:block/red_celebration_vase_tall", "y": 180, "uvlock": false},
+    "facing=east": { "model": "things:block/red_celebration_vase_tall", "y": 90, "uvlock": false},
+    "facing=west": { "model": "things:block/red_celebration_vase_tall", "y": 270, "uvlock": false}
+  }
+}

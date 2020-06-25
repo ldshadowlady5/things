@@ -1,0 +1,72 @@
+{
+  "block.magenta_drum": {
+    "category": "block",
+    "subtitle": "block.magenta_drum.sub",
+    "sounds": [
+      {
+          "name": "things:block/magenta_drum",
+          "stream" : true
+      }
+    ]
+
+  },
+  "block.big_drum": {
+    "category": "block",
+    "subtitle": "block.big_drum.sub",
+    "sounds": [
+      {
+        "name": "things:block/big_drum",
+        "stream" : true
+      }
+    ]
+
+  },
+  "block.crash_symbol": {
+    "category": "block",
+    "subtitle": "block.crash_symbol.sub",
+    "sounds": [
+      {
+        "name": "things:block/crash_symbol",
+        "stream" : true
+      }
+    ]
+
+  },
+  "block.symbol": {
+    "category": "block",
+    "subtitle": "block.symbol.sub",
+    "sounds": [
+      {
+        "name": "things:block/symbol",
+        "stream" : true
+      }
+    ]
+
+  },
+  "block.cowbell": {
+    "category": "block",
+    "subtitle": "block.cowbell.sub",
+    "sounds": [
+      {
+        "name": "things:block/cowbell",
+        "stream" : true
+      }
+    ]
+
+  },
+  "block.keyboard": {
+    "category": "block",
+    "subtitle": "block.keyboard.sub",
+    "sounds": [
+      {
+        "name": "things:block/keyboard1",
+        "stream" : true
+      },
+      {
+        "name": "things:block/keyboard2",
+        "stream" : true
+      }
+    ]
+
+  }
+}

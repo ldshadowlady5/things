@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "things:block/cowbell"},
+    "facing=south": { "model": "things:block/cowbell", "y": 180, "uvlock": false},
+    "facing=east": { "model": "things:block/cowbell", "y": 90, "uvlock": false},
+    "facing=west": { "model": "things:block/cowbell", "y": 270, "uvlock": false}
+  }
+}

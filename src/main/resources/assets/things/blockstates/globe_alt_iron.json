@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "things:block/globe_alt_iron" },
+    "facing=south": { "model": "things:block/globe_alt_iron", "y": 180, "uvlock": false},
+    "facing=east": { "model": "things:block/globe_alt_iron", "y": 90, "uvlock": false},
+    "facing=west": { "model": "things:block/globe_alt_iron", "y": 270, "uvlock": false}
+  }
+}
