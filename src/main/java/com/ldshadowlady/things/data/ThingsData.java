@@ -47,7 +47,7 @@ public class ThingsData {
     static class ThingsBlockLootTables extends BlockLootTables {
         @Override
         protected Iterable<Block> getKnownBlocks() {
-            return ThingsBlocks.REG.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList());
+            return ThingsBlocks.REG.getEntries().stream().map(this::get).collect(Collectors.toList());
         }
 
         @Override
