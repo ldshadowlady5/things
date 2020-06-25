@@ -17,11 +17,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockSymbol extends Block {
+public class BlockCymbal extends Block {
 
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 
-    public BlockSymbol(Properties properties) {
+    public BlockCymbal(Properties properties) {
         super(properties);
     }
 
@@ -32,7 +32,7 @@ public class BlockSymbol extends Block {
     }
 
     protected void playSound(@Nullable PlayerEntity player, IWorld world, BlockPos pos) {
-        world.playSound(player, pos, SoundList.SYMBOL_SOUND.get(), SoundCategory.BLOCKS, 1F, 1F);
+        world.playSound(player, pos, SoundList.CYMBAL_SOUND.get(), SoundCategory.BLOCKS, 1F, 1F);
     }
 
     @Override

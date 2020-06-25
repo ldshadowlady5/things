@@ -28,9 +28,9 @@ public final class ThingsItems {
     public static final RegistryObject<ThingsBlockItem> MUSHROOM_LAMP_RED = REG.register("mushroom_lamp_red", ThingsItems.createBlockDirectionalLampItem(ThingsBlocks.MUSHROOM_LAMP_RED));
     public static final RegistryObject<ThingsBlockItem> CRYSTAL_BALL_PURPLE = REG.register("crystal_ball_purple", ThingsItems.createBlockDirectionalCrystalBallItem(ThingsBlocks.CRYSTAL_BALL_PURPLE));
     public static final RegistryObject<ThingsBlockItem> MAGENTA_DRUM = REG.register("magenta_drum", ThingsItems.createBlockDrumItem(ThingsBlocks.MAGENTA_DRUM));
-    public static final RegistryObject<ThingsBlockItem> SYMBOL = REG.register("symbol", ThingsItems.createBlockSymbolItem(ThingsBlocks.SYMBOL));
+    public static final RegistryObject<ThingsBlockItem> CYMBAL = REG.register("cymbal", ThingsItems.createBlockCymbalItem(ThingsBlocks.CYMBAL));
     public static final RegistryObject<ThingsBlockItem> BIG_DRUM = REG.register("big_drum", ThingsItems.createBlockBigDrumItem(ThingsBlocks.BIG_DRUM));
-    public static final RegistryObject<ThingsBlockItem> CRASH_SYMBOL = REG.register("crash_symbol", ThingsItems.createBlockCrashSymbolItem(ThingsBlocks.CRASH_SYMBOL));
+    public static final RegistryObject<ThingsBlockItem> CRASH_CYMBAL = REG.register("crash_cymbal", ThingsItems.createBlockCrashCymbalItem(ThingsBlocks.CRASH_CYMBAL));
     public static final RegistryObject<ThingsBlockItem> KEYBOARD_STAND = REG.register("keyboard_stand", ThingsItems.createBlockDirectionalItem(ThingsBlocks.KEYBOARD_STAND));
     public static final RegistryObject<ThingsBlockItem> KEYBOARD = REG.register("keyboard", ThingsItems.createBlockKeyboardItem(ThingsBlocks.KEYBOARD));
     public static final RegistryObject<ThingsBlockItem> COWBELL = REG.register("cowbell", ThingsItems.createBlockCowbellItem(ThingsBlocks.COWBELL));
@@ -95,27 +95,27 @@ public final class ThingsItems {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
-    //Block BlockSymbol Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockSymbolItem(final RegistryObject<BlockSymbol> block){
+    //Block BlockCymbal Item Block Register
+    private static Supplier<ThingsBlockItem> createBlockCymbalItem(final RegistryObject<BlockCymbal> block){
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
-    //Block BlockSymbol Item Block Register
+    //Block BlockCymbal Item Block Register
     private static Supplier<ThingsBlockItem> createBlockBigDrumItem(final RegistryObject<BlockBigDrum> block){
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
-    //Block BlockSymbol Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockCrashSymbolItem(final RegistryObject<BlockCrashSymbol> block){
+    //Block BlockCymbal Item Block Register
+    private static Supplier<ThingsBlockItem> createBlockCrashCymbalItem(final RegistryObject<BlockCrashCymbal> block){
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
-    //Block BlockSymbol Item Block Register
+    //Block BlockCymbal Item Block Register
     private static Supplier<ThingsBlockItem> createBlockKeyboardItem(final RegistryObject<BlockKeyboard> block){
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
-    //Block BlockSymbol Item Block Register
+    //Block BlockCymbal Item Block Register
     private static Supplier<ThingsBlockItem> createBlockCowbellItem(final RegistryObject<BlockCowbell> block){
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }

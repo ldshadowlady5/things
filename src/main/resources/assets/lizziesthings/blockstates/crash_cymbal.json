@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/crash_cymbal" },
+    "facing=south": { "model": "lizziesthings:block/crash_cymbal", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/crash_cymbal", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/crash_cymbal", "y": 270, "uvlock": false}
+  }
+}

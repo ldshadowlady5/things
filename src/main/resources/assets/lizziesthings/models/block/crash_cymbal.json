@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "lizziesthings:block/symbol",
-		"particle": "lizziesthings:block/symbol"
+		"0": "lizziesthings:block/cymbal",
+		"particle": "lizziesthings:block/cymbal"
 	},
 	"elements": [
 		{
@@ -226,8 +226,7 @@
 			"scale": [0.44, 0.44, 0.44]
 		},
 		"gui": {
-			"rotation": [19, 103, 0],
-			"translation": [0, -1.25, 0],
+			"rotation": [19, -15, 0],
 			"scale": [0.7, 0.7, 0.7]
 		},
 		"head": {

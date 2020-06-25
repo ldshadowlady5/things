@@ -21,23 +21,23 @@
     ]
 
   },
-  "block.crash_symbol": {
+  "block.crash_cymbal": {
     "category": "block",
-    "subtitle": "block.crash_symbol.sub",
+    "subtitle": "block.crash_cymbal.sub",
     "sounds": [
       {
-        "name": "lizziesthings:block/crash_symbol",
+        "name": "lizziesthings:block/crash_cymbal",
         "stream" : true
       }
     ]
 
   },
-  "block.symbol": {
+  "block.cymbal": {
     "category": "block",
-    "subtitle": "block.symbol.sub",
+    "subtitle": "block.cymbal.sub",
     "sounds": [
       {
-        "name": "lizziesthings:block/symbol",
+        "name": "lizziesthings:block/cymbal",
         "stream" : true
       }
     ]

@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockCrashSymbol extends HorizontalBlock {
+public class BlockCrashCymbal extends HorizontalBlock {
 
     private final VoxelShape northShape;
 
@@ -34,7 +34,7 @@ public class BlockCrashSymbol extends HorizontalBlock {
     private final VoxelShape eastShape;
 
 
-    public BlockCrashSymbol(Properties properties, VoxelShape ShapeIn) {
+    public BlockCrashCymbal(Properties properties, VoxelShape ShapeIn) {
         super(properties);
         this.northShape = ShapeIn;
         this.southShape = VoxelShapeUtils.rotateHorizontal (ShapeIn, Direction.SOUTH);
@@ -74,7 +74,7 @@ public class BlockCrashSymbol extends HorizontalBlock {
     }
 
     protected void playSound(@Nullable PlayerEntity player, IWorld world, BlockPos pos) {
-        world.playSound(player, pos, SoundList.CRASH_SYMBOL_SOUND.get(), SoundCategory.BLOCKS, 1F, 1F);
+        world.playSound(player, pos, SoundList.CRASH_CYMBAL_SOUND.get(), SoundCategory.BLOCKS, 1F, 1F);
     }
 
 }
