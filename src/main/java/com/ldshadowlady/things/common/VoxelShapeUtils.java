@@ -1,17 +1,17 @@
 package com.ldshadowlady.things.common;
 
-        import net.minecraft.util.Direction;
-        import net.minecraft.util.Rotation;
-        import net.minecraft.util.math.AxisAlignedBB;
-        import net.minecraft.util.math.Vec3d;
-        import net.minecraft.util.math.shapes.IBooleanFunction;
-        import net.minecraft.util.math.shapes.VoxelShape;
-        import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.Direction;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.shapes.IBooleanFunction;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 
-        import java.util.ArrayList;
-        import java.util.Collection;
-        import java.util.List;
-        import java.util.function.UnaryOperator;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.UnaryOperator;
 /*
  * Based on https://github.com/mekanism/Mekanism/blob/1.15x/src/main/java/mekanism/common/util/VoxelShapeUtils.java
  * */
@@ -22,7 +22,7 @@ public final class VoxelShapeUtils {
 
     public static void print(double x1, double y1, double z1, double x2, double y2, double z2) {
         System.out.println("makeCuboidShape(" + Math.min(x1, x2) + ", " + Math.min(y1, y2) + ", " + Math.min(z1, z2) + ", " +
-                Math.max(x1, x2) + ", " + Math.max(y1, y2) + ", " + Math.max(z1, z2) + "),");
+            Math.max(x1, x2) + ", " + Math.max(y1, y2) + ", " + Math.max(z1, z2) + "),");
     }
 
     /**
@@ -148,7 +148,7 @@ public final class VoxelShapeUtils {
         for (AxisAlignedBB sourceBoundingBox : sourceBoundingBoxes) {
             //Make the bounding box be centered around the middle, and then move it back after rotating
             rotatedPieces.add(VoxelShapes.create(rotateFunction.apply(sourceBoundingBox.offset(fromOrigin.x, fromOrigin.y, fromOrigin.z))
-                    .offset(-fromOrigin.x, -fromOrigin.z, -fromOrigin.z)));
+                .offset(-fromOrigin.x, -fromOrigin.z, -fromOrigin.z)));
         }
         //return the recombined rotated voxel shape
         return combine(rotatedPieces);

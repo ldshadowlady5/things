@@ -8,7 +8,6 @@ import net.minecraft.block.HorizontalBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.state.IProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -37,10 +36,10 @@ public class BlockCowbell extends HorizontalBlock {
     public BlockCowbell(Properties properties, VoxelShape ShapeIn) {
         super(properties);
         this.northShape = ShapeIn;
-        this.southShape = VoxelShapeUtils.rotateHorizontal (ShapeIn, Direction.SOUTH);
-        this.westShape = VoxelShapeUtils.rotateHorizontal (ShapeIn, Direction.WEST);
-        this.eastShape = VoxelShapeUtils.rotateHorizontal (ShapeIn, Direction.EAST);
-        this.setDefaultState((BlockState)((BlockState)this.stateContainer.getBaseState()).with(HORIZONTAL_FACING, Direction.SOUTH));
+        this.southShape = VoxelShapeUtils.rotateHorizontal(ShapeIn, Direction.SOUTH);
+        this.westShape = VoxelShapeUtils.rotateHorizontal(ShapeIn, Direction.WEST);
+        this.eastShape = VoxelShapeUtils.rotateHorizontal(ShapeIn, Direction.EAST);
+        this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.SOUTH));
     }
 
     @Override
@@ -48,15 +47,14 @@ public class BlockCowbell extends HorizontalBlock {
         Direction direction = context.getFace();
         Direction.Axis direction$axis = direction.getAxis();
         if (direction == Direction.DOWN) {
-            return (BlockState) this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite().getOpposite());
-        }
-        else{
+            return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite().getOpposite());
+        } else {
             return null;
         }
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> state) {
-        state.add(new IProperty[]{HORIZONTAL_FACING});
+        state.add(HORIZONTAL_FACING);
     }
 
     @Override
@@ -76,7 +74,7 @@ public class BlockCowbell extends HorizontalBlock {
 
     public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         this.playSound(player, worldIn, pos);
-        worldIn.addParticle(ParticleTypes.NOTE, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleTypes.NOTE, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, 0.0D, 0.0D, 0.0D);
         return true;
     }
 

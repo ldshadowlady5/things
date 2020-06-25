@@ -65,68 +65,69 @@ public final class ThingsItems {
     public static final RegistryObject<ThingsBlockItem> YELLOW_WOODEN_WINDOW_BOX_TULIP = REG.register("yellow_wooden_window_box_tulip", ThingsItems.createBlockDirectionalTransparencyItem(ThingsBlocks.YELLOW_WOODEN_WINDOW_BOX_TULIP));
 
 
-
     public static final ItemGroup FlowerBreeding = new ThingsItemGroup("FlowerBreeding");
-    private static Item.Properties defaultProperties() {return new Item.Properties().group(FlowerBreeding);
+
+    private static Item.Properties defaultProperties() {
+        return new Item.Properties().group(FlowerBreeding);
     }
 
     //Block Rotational Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockRotationalItem(final RegistryObject<BlockRotational> block){
+    private static Supplier<ThingsBlockItem> createBlockRotationalItem(final RegistryObject<BlockRotational> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block Direcitonal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockDirectionalItem(final RegistryObject<BlockDirectional> block){
+    private static Supplier<ThingsBlockItem> createBlockDirectionalItem(final RegistryObject<BlockDirectional> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block Direcitonal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockDirectionalLampItem(final RegistryObject<BlockDirectionalLamp> block){
+    private static Supplier<ThingsBlockItem> createBlockDirectionalLampItem(final RegistryObject<BlockDirectionalLamp> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block DirecitonalCystaLbALL Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockDirectionalCrystalBallItem(final RegistryObject<BlockDirectionalCrystalBall> block){
+    private static Supplier<ThingsBlockItem> createBlockDirectionalCrystalBallItem(final RegistryObject<BlockDirectionalCrystalBall> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block BlockDrum Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockDrumItem(final RegistryObject<BlockDrum> block){
+    private static Supplier<ThingsBlockItem> createBlockDrumItem(final RegistryObject<BlockDrum> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block BlockCymbal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockCymbalItem(final RegistryObject<BlockCymbal> block){
+    private static Supplier<ThingsBlockItem> createBlockCymbalItem(final RegistryObject<BlockCymbal> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block BlockCymbal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockBigDrumItem(final RegistryObject<BlockBigDrum> block){
+    private static Supplier<ThingsBlockItem> createBlockBigDrumItem(final RegistryObject<BlockBigDrum> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block BlockCymbal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockCrashCymbalItem(final RegistryObject<BlockCrashCymbal> block){
+    private static Supplier<ThingsBlockItem> createBlockCrashCymbalItem(final RegistryObject<BlockCrashCymbal> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block BlockCymbal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockKeyboardItem(final RegistryObject<BlockKeyboard> block){
+    private static Supplier<ThingsBlockItem> createBlockKeyboardItem(final RegistryObject<BlockKeyboard> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block BlockCymbal Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockCowbellItem(final RegistryObject<BlockCowbell> block){
+    private static Supplier<ThingsBlockItem> createBlockCowbellItem(final RegistryObject<BlockCowbell> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block Rotational Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockRotationalTransparencyItem(final RegistryObject<BlockRotationalTransparency> block){
+    private static Supplier<ThingsBlockItem> createBlockRotationalTransparencyItem(final RegistryObject<BlockRotationalTransparency> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 
     //Block Rotational Item Block Register
-    private static Supplier<ThingsBlockItem> createBlockDirectionalTransparencyItem(final RegistryObject<BlockDirectionalTransparency> block){
+    private static Supplier<ThingsBlockItem> createBlockDirectionalTransparencyItem(final RegistryObject<BlockDirectionalTransparency> block) {
         return () -> new ThingsBlockItem(block.orElseThrow(IllegalStateException::new), defaultProperties().maxStackSize(64));
     }
 

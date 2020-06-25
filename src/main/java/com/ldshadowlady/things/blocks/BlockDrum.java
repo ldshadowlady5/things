@@ -28,7 +28,7 @@ public class BlockDrum extends Block {
 
     public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         this.playSound(player, worldIn, pos);
-        worldIn.addParticle(ParticleTypes.NOTE, pos.getX()+0.5, pos.getY()+0.8, pos.getZ()+0.5, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleTypes.NOTE, pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 0.0D, 0.0D, 0.0D);
         return true;
     }
 
@@ -42,8 +42,8 @@ public class BlockDrum extends Block {
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-                return SHAPE;
-        }
+        return SHAPE;
+    }
 
 
 }
