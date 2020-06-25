@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/globe_gold" },
+    "facing=south": { "model": "lizziesthings:block/globe_gold", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/globe_gold", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/globe_gold", "y": 270, "uvlock": false}
+  }
+}

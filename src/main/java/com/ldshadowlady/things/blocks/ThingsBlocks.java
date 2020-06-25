@@ -1,7 +1,6 @@
 package com.ldshadowlady.things.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.DirectionalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.RegistryObject;

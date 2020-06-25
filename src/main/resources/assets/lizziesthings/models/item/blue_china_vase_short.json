@@ -1,0 +1,108 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "extcaves:block/block_base",
+	"textures": {
+		"0": "lizziesthings:block/blue_china_vase",
+		"particle": "lizziesthings:block/blue_china_vase"
+	},
+	"elements": [
+		{
+			"from": [4.5, 6, 6.5],
+			"to": [9.5, 7, 11.5],
+			"faces": {
+				"north": {"uv": [9, 4, 14, 5], "texture": "#0"},
+				"east": {"uv": [9, 4, 14, 5], "texture": "#0"},
+				"south": {"uv": [9, 4, 14, 5], "texture": "#0"},
+				"west": {"uv": [9, 4, 14, 5], "texture": "#0"},
+				"up": {"uv": [10, 8, 8, 6], "texture": "#0"},
+				"down": {"uv": [10, 6, 8, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4.5, 8, 6.5],
+			"to": [9.5, 9, 11.5],
+			"faces": {
+				"north": {"uv": [8, 6, 13, 7], "texture": "#0"},
+				"east": {"uv": [10, 6, 15, 7], "texture": "#0"},
+				"south": {"uv": [9, 4, 14, 5], "texture": "#0"},
+				"west": {"uv": [8, 5, 13, 6], "texture": "#0"},
+				"up": {"uv": [6, 6, 0, 0], "texture": "#0"},
+				"down": {"uv": [2, 0, 0, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5.5, 7, 7.5],
+			"to": [8.5, 8, 10.5],
+			"faces": {
+				"north": {"uv": [3, 5, 6, 6], "texture": "#0"},
+				"east": {"uv": [3, 5, 6, 6], "texture": "#0"},
+				"south": {"uv": [3, 5, 6, 6], "texture": "#0"},
+				"west": {"uv": [3, 5, 6, 6], "texture": "#0"},
+				"up": {"uv": [6, 6, 4, 4], "texture": "#0"},
+				"down": {"uv": [6, 4, 4, 6], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4.5, 0, 6.5],
+			"to": [9.5, 1, 11.5],
+			"faces": {
+				"north": {"uv": [9, 6, 14, 7], "texture": "#0"},
+				"east": {"uv": [9, 7, 14, 8], "texture": "#0"},
+				"south": {"uv": [8, 7, 13, 8], "texture": "#0"},
+				"west": {"uv": [8, 6, 13, 7], "texture": "#0"},
+				"up": {"uv": [13, 8, 8, 3], "texture": "#0"},
+				"down": {"uv": [12, 4, 8, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [3.5, 1, 5.5],
+			"to": [10.5, 6, 12.5],
+			"faces": {
+				"north": {"uv": [1, 8, 8, 13], "texture": "#0"},
+				"east": {"uv": [1, 9, 8, 14], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [1, 9, 8, 14], "texture": "#0"},
+				"west": {"uv": [1, 11, 8, 16], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [7, 16, 0, 9], "texture": "#0"},
+				"down": {"uv": [2, 0, 0, 2], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 2, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 1.75, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"ground": {
+			"translation": [0, 2.25, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0.25, 1.5, 0]
+		},
+		"head": {
+			"translation": [0, 14.5, 0]
+		},
+		"fixed": {
+			"translation": [1.5, 4.25, 0],
+			"scale": [1.31, 1.31, 1.31]
+		}
+	},
+	"groups": [
+		{
+			"name": "treasure_pot",
+			"origin": [8, 8, 8],
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/big_drum" },
+    "facing=south": { "model": "lizziesthings:block/big_drum", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/big_drum", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/big_drum", "y": 270, "uvlock": false}
+  }
+}

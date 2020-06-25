@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/blue_china_vase_tall" },
+    "facing=south": { "model": "lizziesthings:block/blue_china_vase_tall", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/blue_china_vase_tall", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/blue_china_vase_tall", "y": 270, "uvlock": false}
+  }
+}

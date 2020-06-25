@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "things:block/globe_gold" },
-    "facing=south": { "model": "things:block/globe_gold", "y": 180, "uvlock": false},
-    "facing=east": { "model": "things:block/globe_gold", "y": 90, "uvlock": false},
-    "facing=west": { "model": "things:block/globe_gold", "y": 270, "uvlock": false}
-  }
-}

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class ThingsItemGroup extends ItemGroup {
 
     public ThingsItemGroup(String label) {
-        super("Things");
+        super("lizziesthings");
     }
 
     @Override

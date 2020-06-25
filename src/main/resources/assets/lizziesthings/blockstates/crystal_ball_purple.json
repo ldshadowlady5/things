@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/crystal_ball_purple" },
+    "facing=south": { "model": "lizziesthings:block/crystal_ball_purple", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/crystal_ball_purple", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/crystal_ball_purple", "y": 270, "uvlock": false}
+  }
+}

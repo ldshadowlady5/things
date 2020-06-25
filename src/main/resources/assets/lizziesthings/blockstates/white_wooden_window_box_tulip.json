@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/white_wooden_window_box_tulip" },
+    "facing=south": { "model": "lizziesthings:block/white_wooden_window_box_tulip", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/white_wooden_window_box_tulip", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/white_wooden_window_box_tulip", "y": 270, "uvlock": false}
+  }
+}

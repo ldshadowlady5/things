@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lizziesthings:block/mushroom_lamp_red" },
+    "facing=south": { "model": "lizziesthings:block/mushroom_lamp_red", "y": 180, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/mushroom_lamp_red", "y": 90, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/mushroom_lamp_red", "y": 270, "uvlock": false}
+  }
+}

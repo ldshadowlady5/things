@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": { "model": "lizziesthings:block/keyboard"},
+    "facing=north": { "model": "lizziesthings:block/keyboard", "y": 180, "uvlock": false},
+    "facing=west": { "model": "lizziesthings:block/keyboard", "y": 90, "uvlock": false},
+    "facing=east": { "model": "lizziesthings:block/keyboard", "y": 270, "uvlock": false}
+  }
+}

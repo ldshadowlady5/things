@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "rotation=0": { "model": "lizziesthings:block/pink_tv"},
+    "rotation=1": { "model": "lizziesthings:block/pink_tv_1"},
+    "rotation=2": { "model": "lizziesthings:block/pink_tv_2"},
+    "rotation=3": { "model": "lizziesthings:block/pink_tv_3"},
+    "rotation=4": { "model": "lizziesthings:block/pink_tv", "y": 90, "uvlock": false},
+    "rotation=5": { "model": "lizziesthings:block/pink_tv_1", "y": 90, "uvlock": false},
+    "rotation=6": { "model": "lizziesthings:block/pink_tv_2", "y": 90, "uvlock": false},
+    "rotation=7": { "model": "lizziesthings:block/pink_tv_3", "y": 90, "uvlock": false},
+    "rotation=8": { "model": "lizziesthings:block/pink_tv", "y": 180, "uvlock": false},
+    "rotation=9": { "model": "lizziesthings:block/pink_tv_1", "y": 180, "uvlock": false},
+    "rotation=10": { "model": "lizziesthings:block/pink_tv_2", "y": 180, "uvlock": false},
+    "rotation=11": { "model": "lizziesthings:block/pink_tv_3", "y": 180, "uvlock": false},
+    "rotation=12": { "model": "lizziesthings:block/pink_tv", "y": 270, "uvlock": false},
+    "rotation=13": { "model": "lizziesthings:block/pink_tv_1", "y": 270, "uvlock": false},
+    "rotation=14": { "model": "lizziesthings:block/pink_tv_2", "y": 270, "uvlock": false},
+    "rotation=15": { "model": "lizziesthings:block/pink_tv_3", "y": 270, "uvlock": false}
+  }
+}

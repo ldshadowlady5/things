@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "things:block/crash_symbol" },
-    "facing=south": { "model": "things:block/crash_symbol", "y": 180, "uvlock": false},
-    "facing=east": { "model": "things:block/crash_symbol", "y": 90, "uvlock": false},
-    "facing=west": { "model": "things:block/crash_symbol", "y": 270, "uvlock": false}
-  }
-}
