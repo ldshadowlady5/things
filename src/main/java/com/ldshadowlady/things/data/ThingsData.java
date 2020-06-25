@@ -2,11 +2,13 @@ package com.ldshadowlady.things.data;
 
 import com.google.common.collect.ImmutableList;
 import com.ldshadowlady.things.blocks.ThingsBlocks;
+import com.ldshadowlady.things.items.ThingsItems;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.Block;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.LootTableProvider;
+import net.minecraft.data.*;
 import net.minecraft.data.loot.BlockLootTables;
+import net.minecraft.item.Items;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,8 +26,34 @@ import java.util.stream.Collectors;
 public class ThingsData {
     public static void register(IEventBus event) {
         event.<GatherDataEvent>addListener(e -> {
+            e.getGenerator().addProvider(new ThingsRecipeProvider(e.getGenerator()));
             e.getGenerator().addProvider(new ThingsLootTableProvider(e.getGenerator()));
         });
+    }
+
+    static class ThingsRecipeProvider extends RecipeProvider {
+        public ThingsRecipeProvider(final DataGenerator generator) {
+            super(generator);
+        }
+
+        @Override
+        protected void registerRecipes(final Consumer<IFinishedRecipe> consumer) {
+            ShapedRecipeBuilder.shapedRecipe(get(ThingsItems.COWBELL))
+                .patternLine("#")
+                .patternLine("X")
+                .key('#', Items.STICK)
+                .key('X', Items.GOLD_INGOT)
+                .addCriterion("has_gold_ingot", this.hasItem(Items.GOLD_INGOT))
+                .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(get(ThingsItems.KEYBOARD))
+                .patternLine("##")
+                .patternLine("$R")
+                .key('#', Items.NOTE_BLOCK)
+                .key('$', ItemTags.PLANKS)
+                .key('R', Items.REDSTONE)
+                .addCriterion("has_redstone", this.hasItem(Items.REDSTONE))
+                .build(consumer);
+        }
     }
 
     static class ThingsLootTableProvider extends LootTableProvider {
@@ -47,7 +75,7 @@ public class ThingsData {
     static class ThingsBlockLootTables extends BlockLootTables {
         @Override
         protected Iterable<Block> getKnownBlocks() {
-            return ThingsBlocks.REG.getEntries().stream().map(this::get).collect(Collectors.toList());
+            return ThingsBlocks.REG.getEntries().stream().map(ThingsData::get).collect(Collectors.toList());
         }
 
         @Override
@@ -99,11 +127,11 @@ public class ThingsData {
         }
 
         void dropSelf(RegistryObject<? extends Block> block) {
-            this.func_218492_c(this.get(block));
+            this.func_218492_c(get(block));
         }
+    }
 
-        <T extends IForgeRegistryEntry<? super T>> T get(RegistryObject<? extends T> obj) {
-            return obj.orElseThrow(() -> new IllegalStateException("Absent registry object: \"" + obj.getId() + "\""));
-        }
+    static <T extends IForgeRegistryEntry<? super T>> T get(RegistryObject<? extends T> obj) {
+        return obj.orElseThrow(() -> new IllegalStateException("Absent registry object: \"" + obj.getId() + "\""));
     }
 }

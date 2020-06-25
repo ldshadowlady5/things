@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "$R"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:note_block"
+    },
+    "$": {
+      "tag": "minecraft:planks"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:keyboard"
+  }
+}
