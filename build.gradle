@@ -55,6 +55,19 @@ minecraft {
     }
 }
 
+jar {
+    classifier '1.14.4'
+    exclude '.cache'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs += 'src/generated/resources'
+        }
+    }
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.14.4-28.2.0'
 }

@@ -1,6 +1,7 @@
 package com.ldshadowlady.things;
 
 import com.ldshadowlady.things.blocks.ThingsBlocks;
+import com.ldshadowlady.things.data.ThingsData;
 import com.ldshadowlady.things.items.ThingsItems;
 import com.ldshadowlady.things.lists.SoundList;
 import net.minecraftforge.fml.common.Mod;
@@ -18,5 +19,6 @@ public class Things {
         ThingsBlocks.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
         ThingsItems.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
         SoundList.SOUNDS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ThingsData.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }
