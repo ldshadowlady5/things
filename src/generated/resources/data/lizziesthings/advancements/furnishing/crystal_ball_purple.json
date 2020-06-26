@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_crystal_ball_purple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:crystal_ball_purple"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_crystal_ball_purple"
+    ]
+  ]
+}

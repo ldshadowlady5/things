@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "lizziesthings:block/furnishing_station_front",
+        "down": "block/spruce_planks",
+        "up": "lizziesthings:block/furnishing_station_top",
+        "north": "lizziesthings:block/furnishing_station_front",
+        "east": "lizziesthings:block/furnishing_station_side",
+        "south": "lizziesthings:block/furnishing_station_side",
+        "west": "lizziesthings:block/furnishing_station_front"
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_book_laid_triple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:book_laid_triple"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_book_laid_triple"
+    ]
+  ]
+}

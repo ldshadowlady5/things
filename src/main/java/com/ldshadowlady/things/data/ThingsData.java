@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.ldshadowlady.things.blocks.ThingsBlocks;
 import com.ldshadowlady.things.items.ThingsItems;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.block.Block;
 import net.minecraft.data.*;
 import net.minecraft.data.loot.BlockLootTables;
@@ -28,16 +29,17 @@ public class ThingsData {
         event.<GatherDataEvent>addListener(e -> {
             e.getGenerator().addProvider(new ThingsRecipeProvider(e.getGenerator()));
             e.getGenerator().addProvider(new ThingsLootTableProvider(e.getGenerator()));
+            e.getGenerator().addProvider(new ThingsAdvancementProvider(e.getGenerator()));
         });
     }
 
     static class ThingsRecipeProvider extends RecipeProvider {
-        public ThingsRecipeProvider(final DataGenerator generator) {
+        public ThingsRecipeProvider(DataGenerator generator) {
             super(generator);
         }
 
         @Override
-        protected void registerRecipes(final Consumer<IFinishedRecipe> consumer) {
+        protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
             ShapedRecipeBuilder.shapedRecipe(get(ThingsItems.COWBELL))
                 .patternLine("#")
                 .patternLine("X")
@@ -57,7 +59,7 @@ public class ThingsData {
     }
 
     static class ThingsLootTableProvider extends LootTableProvider {
-        public ThingsLootTableProvider(final DataGenerator generator) {
+        public ThingsLootTableProvider(DataGenerator generator) {
             super(generator);
         }
 
@@ -67,7 +69,7 @@ public class ThingsData {
         }
 
         @Override
-        protected void validate(final Map<ResourceLocation, LootTable> map, final ValidationResults results) {
+        protected void validate(Map<ResourceLocation, LootTable> map, ValidationResults results) {
             map.forEach((name, table) -> LootTableManager.func_215302_a(results, name, table, map::get));
         }
     }
@@ -80,6 +82,7 @@ public class ThingsData {
 
         @Override
         protected void addTables() {
+            this.dropSelf(ThingsBlocks.FURNISHING_STATION);
             this.dropSelf(ThingsBlocks.GRAVESTONE_MOON);
             this.dropSelf(ThingsBlocks.GRAVESTONE_SKULL);
             this.dropSelf(ThingsBlocks.GRAVESTONE_HEART);
@@ -128,6 +131,17 @@ public class ThingsData {
 
         void dropSelf(RegistryObject<? extends Block> block) {
             this.func_218492_c(get(block));
+        }
+    }
+
+    static class ThingsAdvancementProvider extends AbstractAdvancementProvider {
+        public ThingsAdvancementProvider(DataGenerator generator) {
+            super(generator);
+        }
+
+        @Override
+        List<Consumer<Consumer<Advancement>>> getAdvancements() {
+            return ImmutableList.of(new FurnishingAdvancements());
         }
     }
 

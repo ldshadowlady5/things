@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_big_drum": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:big_drum"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_big_drum"
+    ]
+  ]
+}

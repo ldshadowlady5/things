@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_book_upright_single": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:book_upright_single"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_book_upright_single"
+    ]
+  ]
+}
