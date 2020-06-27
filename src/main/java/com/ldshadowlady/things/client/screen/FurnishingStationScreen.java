@@ -10,16 +10,20 @@ import net.minecraft.client.audio.SimpleSound;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.multiplayer.ClientAdvancementManager;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
-import org.apache.logging.log4j.LogManager;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class FurnishingStationScreen extends ContainerScreen<FurnishingStationContainer> implements ClientAdvancementManager.IListener {
@@ -38,6 +42,8 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
 
     private float scroll;
 
+    private List<ItemStack> items = new ArrayList<>();
+
     public FurnishingStationScreen(FurnishingStationContainer station, PlayerInventory inventory, ITextComponent title) {
         super(station, inventory, title);
         this.advancementManager = inventory.player instanceof ClientPlayerEntity ? ((ClientPlayerEntity) inventory.player).connection.getAdvancementManager() : null;
@@ -46,6 +52,7 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
     @Override
     public void init(final Minecraft minecraft, final int width, final int height) {
         super.init(minecraft, width, height);
+        this.items.clear();
         if (this.advancementManager != null) {
             this.advancementManager.setListener(this);
         }
@@ -85,17 +92,37 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
         if (!red.getHasStack()) this.blit(x + red.xPos, y + red.yPos, this.xSize, 0, 16, 16);
         if (!yellow.getHasStack()) this.blit(x + yellow.xPos, y + yellow.yPos, this.xSize + 16, 0, 16, 16);
         if (!blue.getHasStack()) this.blit(x + blue.xPos, y + blue.yPos, this.xSize + 32, 0, 16, 16);
-
-    }
-
-    private List<Item> getItems() {
-        //Minecraft.getInstance().player.getRecipeBook().isUnlocked()
-//        this.minecraft.player.connection.getAdvancementManager().getAdvancementList().getAdvancement(null).getChildren().iterator().next().i
-        return Collections.emptyList();
+        int gridX = this.guiLeft + 30;
+        int gridY = this.guiTop + 15;
+        int offset = this.computeScrollOffset();
+        for (int i = 0; i < ROWS * COLUMNS; i++) {
+            int tx = gridX + i % COLUMNS * TILE;
+            int ty = gridY + i / COLUMNS * TILE;
+            int index = offset + i;
+            if (index <= this.items.size()) {
+                int v = this.ySize;
+                if (index == this.container.getSelection()) {
+                    v += TILE;
+                } else if (mouseX >= tx && mouseY >= ty && mouseX < tx + TILE && mouseY < ty + TILE) {
+                    v += 2 * TILE;
+                }
+                this.blit(tx, ty, 0, v, TILE, TILE);
+            }
+        }
+        RenderHelper.enableGUIStandardItemLighting();
+        for (int i = 0; i < ROWS * COLUMNS; i++) {
+            int tx = gridX + i % COLUMNS * TILE;
+            int ty = gridY + i / COLUMNS * TILE;
+            int index = offset + i;
+            if (index <= this.items.size()) {
+                this.minecraft.getItemRenderer().renderItemAndEffectIntoGUI(this.items.get(index - 1), tx + 1, ty + 1);
+            }
+        }
+        RenderHelper.disableStandardItemLighting();
     }
 
     private int computeScrollOffset() {
-        return 1 + (int)((double)(this.scroll * (16)) + 0.5D) * COLUMNS;
+        return 1 + (int) (this.scroll * (this.items.size() / COLUMNS) + 0.5D) * COLUMNS;
     }
 
     @Override
@@ -107,9 +134,10 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
         for(int i = 0; i < ROWS * COLUMNS; i++) {
             double x = mouseX - (gridX + i % COLUMNS * TILE);
             double y = mouseY - (gridY + i / COLUMNS * TILE);
-            if (x >= 0 && y >= 0 && x < TILE && y < TILE && this.container.enchantItem(this.minecraft.player, offset + i)) {
+            int ordinal = offset + i;
+            if (ordinal <= this.items.size() && ordinal != this.container.getSelection() && x >= 0 && y >= 0 && x < TILE && y < TILE && this.container.enchantItem(this.minecraft.player, ordinal)) {
                 Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEvents.UI_LOOM_SELECT_PATTERN, 1.0F));
-                this.minecraft.playerController.sendEnchantPacket(this.container.windowId, i);
+                this.minecraft.playerController.sendEnchantPacket(this.container.windowId, ordinal);
                 return true;
             }
         }
@@ -139,13 +167,19 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
 
     @Override
     public void advancementsCleared() {
+        this.items.clear();
     }
 
     @Override
     public void onUpdateAdvancementProgress(Advancement advancement, AdvancementProgress progress) {
         Advancement parent = advancement.getParent();
-        if (parent != null && parent.getId().equals(new ResourceLocation(Things.ID, "furnishing/root"))) {
-            LogManager.getLogger().info("{}: {}", advancement.getId().getPath(), progress.isDone());
+        if (parent != null && parent.getId().equals(new ResourceLocation(Things.ID, "furnishing/root")) && progress.isDone()) {
+            String p = advancement.getId().getPath();
+            final Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(advancement.getId().getNamespace(), p.substring(p.indexOf('/') + 1)));
+            if (item != Items.AIR) {
+                this.items.add(new ItemStack(item));
+                this.items.sort(Comparator.comparing(stack -> stack.getItem().getRegistryName()));
+            }
         }
     }
 
