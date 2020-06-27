@@ -97,8 +97,7 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
         if (!red.getHasStack()) this.blit(x + red.xPos, y + red.yPos, this.xSize, 0, 16, 16);
         if (!yellow.getHasStack()) this.blit(x + yellow.xPos, y + yellow.yPos, this.xSize + 16, 0, 16, 16);
         if (!blue.getHasStack()) this.blit(x + blue.xPos, y + blue.yPos, this.xSize + 32, 0, 16, 16);
-        int k = (int) (41.0F * this.scroll);
-        this.blit(x + 123, y + 15 + k, 232 + (this.canScroll() ? 0 : 12), 0, 12, 15);
+        this.blit(x + 123, y + 15 + (int) (39.0F * this.scroll), 232 + (this.canScroll() ? 0 : 12), 0, 12, 15);
         this.renderItemGrid(mouseX, mouseY);
     }
 
@@ -163,9 +162,20 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
     }
 
     @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+        if (this.scrolling && this.canScroll()) {
+            int x = this.guiTop + 15;
+            int j = x + 56;
+            this.scroll = MathHelper.clamp(((float) mouseY - x - 7.5F) / ((j - x) - 15.0F), 0.0F, 1.0F);
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+    }
+
+    @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         if (this.canScroll()) {
-            this.scroll = MathHelper.clamp((float) (this.scroll - delta / (this.items.size() - COLUMNS)), 0.0F, 1.0F);
+            this.scroll = MathHelper.clamp((float) (this.scroll - delta / (this.items.size() / COLUMNS)), 0.0F, 1.0F);
         }
         return true;
     }
