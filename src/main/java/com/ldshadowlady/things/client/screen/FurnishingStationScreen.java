@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -66,6 +67,10 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
         }
     }
 
+    private boolean canScroll() {
+        return this.items.size() > ROWS * COLUMNS;
+    }
+
     @Override
     public void render(int mouseX, int mouseY, float delta) {
         super.render(mouseX, mouseY, delta);
@@ -92,6 +97,12 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
         if (!red.getHasStack()) this.blit(x + red.xPos, y + red.yPos, this.xSize, 0, 16, 16);
         if (!yellow.getHasStack()) this.blit(x + yellow.xPos, y + yellow.yPos, this.xSize + 16, 0, 16, 16);
         if (!blue.getHasStack()) this.blit(x + blue.xPos, y + blue.yPos, this.xSize + 32, 0, 16, 16);
+        int k = (int) (41.0F * this.scroll);
+        this.blit(x + 123, y + 15 + k, 232 + (this.canScroll() ? 0 : 12), 0, 12, 15);
+        this.renderItemGrid(mouseX, mouseY);
+    }
+
+    private void renderItemGrid(final int mouseX, final int mouseY) {
         int gridX = this.guiLeft + 30;
         int gridY = this.guiTop + 15;
         int offset = this.computeScrollOffset();
@@ -141,12 +152,22 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
                 return true;
             }
         }
-        int thumbX = this.guiLeft + 123;
-        int thumbY = this.guiTop + 15;
-        if (mouseX >= thumbX && mouseX < (thumbX + 12) && mouseY >= thumbY && mouseY < (thumbY + 56)) {
-            this.scrolling = true;
+        if (this.canScroll()) {
+            int thumbX = this.guiLeft + 123;
+            int thumbY = this.guiTop + 15;
+            if (mouseX >= thumbX && mouseX < (thumbX + 12) && mouseY >= thumbY && mouseY < (thumbY + 56)) {
+                this.scrolling = true;
+            }
         }
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+        if (this.canScroll()) {
+            this.scroll = MathHelper.clamp((float) (this.scroll - delta / (this.items.size() - COLUMNS)), 0.0F, 1.0F);
+        }
+        return true;
     }
 
     @Override
