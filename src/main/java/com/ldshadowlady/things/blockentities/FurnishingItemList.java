@@ -31,15 +31,31 @@ public class FurnishingItemList {
         this.items.clear();
     }
 
+    public void remove(Advancement advancement) {
+        if (this.isFurnishing(advancement)) {
+            Item item = this.getItem(advancement);
+            this.items.removeIf(stack -> stack.getItem() == item);
+        }
+    }
+
     public void accept(Advancement advancement, AdvancementProgress progress) {
-        Advancement parent = advancement.getParent();
-        if (parent != null && ROOT.equals(parent.getId()) && progress.isDone()) {
-            String p = advancement.getId().getPath();
-            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(advancement.getId().getNamespace(), p.substring(p.indexOf('/') + 1)));
+        if (this.isFurnishing(advancement) && progress.isDone()) {
+            Item item = this.getItem(advancement);
             if (item != Items.AIR) {
                 this.items.add(new ItemStack(item));
                 this.items.sort(ORDER);
             }
         }
+    }
+
+    private boolean isFurnishing(Advancement advancement) {
+        Advancement parent = advancement.getParent();
+        return parent != null && ROOT.equals(parent.getId());
+    }
+
+    private Item getItem(Advancement advancement) {
+        ResourceLocation id = advancement.getId();
+        String path = id.getPath();
+        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(id.getNamespace(), path.substring(path.indexOf('/') + 1)));
     }
 }

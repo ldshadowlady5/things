@@ -118,7 +118,7 @@ public abstract class UnlockedFurnishing {
 
         @Override
         public void nonRootAdvancementRemoved(Advancement advancement) {
-            // TODO: removal
+            this.list.remove(advancement);
         }
 
         @Override
