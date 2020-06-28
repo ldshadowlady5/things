@@ -17,7 +17,9 @@ import java.util.List;
 public class FurnishingItemList {
     public static final ResourceLocation ROOT = new ResourceLocation(Things.ID, "furnishing/root");
 
-    public static final Comparator<ItemStack> ORDER = Comparator.comparing(stack -> stack.getItem().getRegistryName());
+    public static final Comparator<ItemStack> ORDER = Comparator.<ItemStack, String>comparing(
+        stack -> stack.getItem() instanceof FurnishingItem ? ((FurnishingItem) stack.getItem()).getFurnishing().getGroup() : ""
+    ).thenComparing(stack -> stack.getItem().getRegistryName());
 
     private List<ItemStack> items = new ArrayList<>();
 
