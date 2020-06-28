@@ -4,7 +4,6 @@ import com.ldshadowlady.things.blocks.ThingsBlocks;
 import com.ldshadowlady.things.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
@@ -32,6 +31,8 @@ public class FurnishingStationContainer extends Container {
     private final Slot output;
 
     private final UnlockedFurnishing furnishing;
+
+    private long lastTakenTime = 0L;
 
     public FurnishingStationContainer(int id, PlayerInventory player) {
         this(id, player, new ItemStackHandler(3), IWorldPosCallable.DUMMY);
@@ -65,14 +66,25 @@ public class FurnishingStationContainer extends Container {
             }
 
             @Override
-            public ItemStack onTake(PlayerEntity thePlayer, ItemStack stack) {
+            public ItemStack onTake(PlayerEntity player, ItemStack stack) {
                 FurnishingStationContainer.this.redDyeSlot.decrStackSize(1);
                 FurnishingStationContainer.this.yellowDyeSlot.decrStackSize(1);
                 FurnishingStationContainer.this.blueDyeSlot.decrStackSize(1);
+                stack.getItem().onCreated(stack, player.world, player);
                 position.consume((world, pos) -> {
-                    world.playSound(null, pos, SoundList.UI_FURNISHING_STATION_TAKE_RESULT.orElseThrow(IllegalStateException::new), SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    long time = world.getGameTime();
+                    if (time != FurnishingStationContainer.this.lastTakenTime) {
+                        world.playSound(null, pos, SoundList.UI_FURNISHING_STATION_TAKE_RESULT.orElseThrow(IllegalStateException::new), SoundCategory.BLOCKS, 1.0F, 1.0F);
+                        FurnishingStationContainer.this.lastTakenTime = time;
+                    }
                 });
-                return super.onTake(thePlayer, stack);
+                return super.onTake(player, stack);
+            }
+
+            @Override
+            public void onSlotChanged() {
+                super.onSlotChanged();
+                FurnishingStationContainer.this.onChanged();
             }
         });
         for (int row = 0; row < 3; row++) {
@@ -124,6 +136,11 @@ public class FurnishingStationContainer extends Container {
     }
 
     @Override
+    public boolean canMergeSlot(ItemStack stack, Slot slot) {
+        return false;
+    }
+
+    @Override
     public ItemStack transferStackInSlot(PlayerEntity player, int index) {
         ItemStack result = ItemStack.EMPTY;
         Slot slot = this.inventorySlots.get(index);
@@ -171,10 +188,9 @@ public class FurnishingStationContainer extends Container {
         return result;
     }
 
-    @Override
-    public void onCraftMatrixChanged(IInventory inventory) {
+    public void onChanged() {
         this.updateOutput();
-        super.onCraftMatrixChanged(inventory);
+        this.detectAndSendChanges();
     }
 
     @Override
@@ -185,10 +201,14 @@ public class FurnishingStationContainer extends Container {
 
     private void updateOutput() {
         int selection = this.selection.get();
+        ItemStack output;
         if (selection > 0 && selection <= this.furnishing.getItems().size()) {
-            this.output.putStack(this.furnishing.getItems().get(selection - 1).copy());
+            output = this.furnishing.getItems().get(selection - 1).copy();
         } else {
-            this.output.putStack(ItemStack.EMPTY);
+            output = ItemStack.EMPTY;
+        }
+        if (!ItemStack.areItemStacksEqual(output, this.output.getStack())) {
+            this.output.putStack(output);
         }
     }
 }
