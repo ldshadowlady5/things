@@ -1,6 +1,5 @@
-package com.ldshadowlady.things.container;
+package com.ldshadowlady.things.furnishing;
 
-import com.ldshadowlady.things.blockentities.FurnishingItemList;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.AdvancementProgress;

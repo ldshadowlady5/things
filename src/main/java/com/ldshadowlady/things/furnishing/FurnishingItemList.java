@@ -1,4 +1,4 @@
-package com.ldshadowlady.things.blockentities;
+package com.ldshadowlady.things.furnishing;
 
 import com.ldshadowlady.things.Things;
 import net.minecraft.advancements.Advancement;

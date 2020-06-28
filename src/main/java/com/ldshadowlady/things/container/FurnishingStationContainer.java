@@ -1,6 +1,7 @@
 package com.ldshadowlady.things.container;
 
 import com.ldshadowlady.things.blocks.ThingsBlocks;
+import com.ldshadowlady.things.furnishing.UnlockedFurnishing;
 import com.ldshadowlady.things.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
