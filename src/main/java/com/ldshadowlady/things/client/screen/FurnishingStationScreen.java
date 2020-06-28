@@ -129,8 +129,7 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
     public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
         if (this.scrolling && this.canScroll()) {
             int x = this.guiTop + 15;
-            int j = x + 56;
-            this.scroll = MathHelper.clamp(((float) mouseY - x - 7.5F) / ((j - x) - 15.0F), 0.0F, 1.0F);
+            this.scroll = MathHelper.clamp(((float) mouseY - x - 7.5F) / (54.0F - 15.0F), 0.0F, 1.0F);
             return true;
         }
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
