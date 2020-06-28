@@ -34,7 +34,7 @@ public class FurnishingStationContainer extends Container {
     private final UnlockedFurnishing furnishing;
 
     public FurnishingStationContainer(int id, PlayerInventory player) {
-        this(id, player, new ItemStackHandler(4), IWorldPosCallable.DUMMY);
+        this(id, player, new ItemStackHandler(3), IWorldPosCallable.DUMMY);
     }
 
     public FurnishingStationContainer(int id, PlayerInventory inventory, IItemHandler station, IWorldPosCallable position) {
@@ -58,7 +58,7 @@ public class FurnishingStationContainer extends Container {
                 return stack.getItem().isIn(Tags.Items.DYES_BLUE);
             }
         });
-        this.output = this.addSlot(new SlotItemHandler(station, 3, 146, 33) {
+        this.output = this.addSlot(new SlotItemHandler(new ItemStackHandler(1), 0, 146, 33) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return false;

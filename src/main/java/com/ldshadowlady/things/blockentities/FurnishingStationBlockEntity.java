@@ -22,7 +22,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nullable;
 
 public class FurnishingStationBlockEntity extends TileEntity implements INamedContainerProvider {
-    private final ItemStackHandler stacks = new ItemStackHandler(4) {
+    private final ItemStackHandler stacks = new ItemStackHandler(3) {
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
             switch (slot) {
