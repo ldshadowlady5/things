@@ -1,12 +1,15 @@
 package com.ldshadowlady.things.container;
 
 import com.ldshadowlady.things.blocks.ThingsBlocks;
+import com.ldshadowlady.things.furnishing.Furnishing;
+import com.ldshadowlady.things.furnishing.FurnishingItem;
 import com.ldshadowlady.things.furnishing.UnlockedFurnishing;
 import com.ldshadowlady.things.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.IntReferenceHolder;
@@ -47,17 +50,35 @@ public class FurnishingStationContainer extends Container {
             public boolean isItemValid(ItemStack stack) {
                 return stack.getItem().isIn(Tags.Items.DYES_RED);
             }
+
+            @Override
+            public void onSlotChanged() {
+                super.onSlotChanged();
+                FurnishingStationContainer.this.onChanged();
+            }
         });
         this.yellowDyeSlot = this.addSlot(new SlotItemHandler(station, 1, 11, 34) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return stack.getItem().isIn(Tags.Items.DYES_YELLOW);
             }
+
+            @Override
+            public void onSlotChanged() {
+                super.onSlotChanged();
+                FurnishingStationContainer.this.onChanged();
+            }
         });
         this.blueDyeSlot = this.addSlot(new SlotItemHandler(station, 2, 11, 53) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return stack.getItem().isIn(Tags.Items.DYES_BLUE);
+            }
+
+            @Override
+            public void onSlotChanged() {
+                super.onSlotChanged();
+                FurnishingStationContainer.this.onChanged();
             }
         });
         this.output = this.addSlot(new SlotItemHandler(new ItemStackHandler(1), 0, 146, 33) {
@@ -68,9 +89,13 @@ public class FurnishingStationContainer extends Container {
 
             @Override
             public ItemStack onTake(PlayerEntity player, ItemStack stack) {
-                FurnishingStationContainer.this.redDyeSlot.decrStackSize(1);
-                FurnishingStationContainer.this.yellowDyeSlot.decrStackSize(1);
-                FurnishingStationContainer.this.blueDyeSlot.decrStackSize(1);
+                Item item = stack.getItem();
+                if (item instanceof FurnishingItem) {
+                    Furnishing furnishing = ((FurnishingItem) item).getFurnishing();
+                    FurnishingStationContainer.this.redDyeSlot.decrStackSize(furnishing.getRed());
+                    FurnishingStationContainer.this.yellowDyeSlot.decrStackSize(furnishing.getYellow());
+                    FurnishingStationContainer.this.blueDyeSlot.decrStackSize(furnishing.getBlue());
+                }
                 stack.getItem().onCreated(stack, player.world, player);
                 position.consume((world, pos) -> {
                     long time = world.getGameTime();
@@ -130,7 +155,7 @@ public class FurnishingStationContainer extends Container {
     public boolean enchantItem(PlayerEntity player, int value) {
         if (value > 0 && value <= this.furnishing.getItems().size()) {
             this.selection.set(value);
-            this.updateOutput();
+            this.onChanged();
             return true;
         }
         return false;
@@ -202,11 +227,17 @@ public class FurnishingStationContainer extends Container {
 
     private void updateOutput() {
         int selection = this.selection.get();
-        ItemStack output;
+        ItemStack output = ItemStack.EMPTY;
         if (selection > 0 && selection <= this.furnishing.getItems().size()) {
-            output = this.furnishing.getItems().get(selection - 1).copy();
-        } else {
-            output = ItemStack.EMPTY;
+            ItemStack stack = this.furnishing.getItems().get(selection - 1);
+            if (stack.getItem() instanceof FurnishingItem) {
+                Furnishing furnishing = ((FurnishingItem) stack.getItem()).getFurnishing();
+                if (this.redDyeSlot.getStack().getCount() >= furnishing.getRed() &&
+                    this.yellowDyeSlot.getStack().getCount() >= furnishing.getYellow() &&
+                    this.blueDyeSlot.getStack().getCount() >= furnishing.getBlue()) {
+                    output = stack.copy();
+                }
+            }
         }
         if (!ItemStack.areItemStacksEqual(output, this.output.getStack())) {
             this.output.putStack(output);
