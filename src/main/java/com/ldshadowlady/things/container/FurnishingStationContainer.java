@@ -1,6 +1,7 @@
 package com.ldshadowlady.things.container;
 
 import com.ldshadowlady.things.blocks.ThingsBlocks;
+import com.ldshadowlady.things.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -10,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.IntReferenceHolder;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -70,8 +70,7 @@ public class FurnishingStationContainer extends Container {
                 FurnishingStationContainer.this.yellowDyeSlot.decrStackSize(1);
                 FurnishingStationContainer.this.blueDyeSlot.decrStackSize(1);
                 position.consume((world, pos) -> {
-                    // TODO: take sound
-                    world.playSound(null, pos, SoundEvents.UI_LOOM_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    world.playSound(null, pos, SoundList.UI_FURNISHING_STATION_TAKE_RESULT.orElseThrow(IllegalStateException::new), SoundCategory.BLOCKS, 1.0F, 1.0F);
                 });
                 return super.onTake(thePlayer, stack);
             }

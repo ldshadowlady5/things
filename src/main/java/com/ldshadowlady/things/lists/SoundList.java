@@ -20,5 +20,7 @@ public class SoundList {
     public static final RegistryObject<SoundEvent> CRASH_CYMBAL_SOUND = SOUNDS.register("block.crash_cymbal", () -> new SoundEvent(new ResourceLocation(ID, "block.crash_cymbal")));
     public static final RegistryObject<SoundEvent> KEYBOARD_SOUND = SOUNDS.register("block.keyboard", () -> new SoundEvent(new ResourceLocation(ID, "block.keyboard")));
 
+    public static final RegistryObject<SoundEvent> UI_FURNISHING_STATION_SELECT_FURNISHING = SOUNDS.register("ui.furnishing_station.select_furnishing", () -> new SoundEvent(new ResourceLocation(ID, "ui.furnishing_station.select_furnishing")));
+    public static final RegistryObject<SoundEvent> UI_FURNISHING_STATION_TAKE_RESULT = SOUNDS.register("ui.furnishing_station.take_result", () -> new SoundEvent(new ResourceLocation(ID, "ui.furnishing_station.take_result")));
 
 }

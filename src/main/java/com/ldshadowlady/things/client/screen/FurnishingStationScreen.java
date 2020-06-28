@@ -2,6 +2,7 @@ package com.ldshadowlady.things.client.screen;
 
 import com.ldshadowlady.things.Things;
 import com.ldshadowlady.things.container.FurnishingStationContainer;
+import com.ldshadowlady.things.lists.SoundList;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SimpleSound;
@@ -10,7 +11,6 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 
@@ -110,8 +110,7 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
             double y = mouseY - (gridY + i / COLUMNS * TILE);
             int ordinal = offset + i;
             if (ordinal <= this.container.getFurnishings().size() && ordinal != this.container.getSelection() && x >= 0 && y >= 0 && x < TILE && y < TILE && this.container.enchantItem(this.minecraft.player, ordinal)) {
-                // TODO: select sound
-                Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEvents.UI_LOOM_SELECT_PATTERN, 1.0F));
+                Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundList.UI_FURNISHING_STATION_SELECT_FURNISHING.orElseThrow(IllegalStateException::new), 1.0F));
                 this.minecraft.playerController.sendEnchantPacket(this.container.windowId, ordinal);
                 return true;
             }
