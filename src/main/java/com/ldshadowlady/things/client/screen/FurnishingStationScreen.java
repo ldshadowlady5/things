@@ -3,31 +3,18 @@ package com.ldshadowlady.things.client.screen;
 import com.ldshadowlady.things.Things;
 import com.ldshadowlady.things.container.FurnishingStationContainer;
 import com.mojang.blaze3d.platform.GlStateManager;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SimpleSound;
-import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
-import net.minecraft.client.multiplayer.ClientAdvancementManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
-public class FurnishingStationScreen extends ContainerScreen<FurnishingStationContainer> implements ClientAdvancementManager.IListener {
+public class FurnishingStationScreen extends ContainerScreen<FurnishingStationContainer> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Things.ID, "textures/gui/container/furnishing_station.png");
 
     private static final int ROWS = 3;
@@ -36,39 +23,16 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
 
     private static final int TILE = 18;
 
-    @Nullable
-    private ClientAdvancementManager advancementManager;
-
     private boolean scrolling;
 
     private float scroll;
 
-    private List<ItemStack> items = new ArrayList<>();
-
     public FurnishingStationScreen(FurnishingStationContainer station, PlayerInventory inventory, ITextComponent title) {
         super(station, inventory, title);
-        this.advancementManager = inventory.player instanceof ClientPlayerEntity ? ((ClientPlayerEntity) inventory.player).connection.getAdvancementManager() : null;
-    }
-
-    @Override
-    public void init(final Minecraft minecraft, final int width, final int height) {
-        super.init(minecraft, width, height);
-        this.items.clear();
-        if (this.advancementManager != null) {
-            this.advancementManager.setListener(this);
-        }
-    }
-
-    @Override
-    public void removed() {
-        super.removed();
-        if (this.advancementManager != null) {
-            this.advancementManager.setListener(null);
-        }
     }
 
     private boolean canScroll() {
-        return this.items.size() > ROWS * COLUMNS;
+        return this.container.getFurnishings().size() > ROWS * COLUMNS;
     }
 
     @Override
@@ -109,7 +73,7 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
             int tx = gridX + i % COLUMNS * TILE;
             int ty = gridY + i / COLUMNS * TILE;
             int index = offset + i;
-            if (index <= this.items.size()) {
+            if (index <= this.container.getFurnishings().size()) {
                 int v = this.ySize;
                 if (index == this.container.getSelection()) {
                     v += TILE;
@@ -124,15 +88,15 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
             int tx = gridX + i % COLUMNS * TILE;
             int ty = gridY + i / COLUMNS * TILE;
             int index = offset + i;
-            if (index <= this.items.size()) {
-                this.minecraft.getItemRenderer().renderItemAndEffectIntoGUI(this.items.get(index - 1), tx + 1, ty + 1);
+            if (index <= this.container.getFurnishings().size()) {
+                this.minecraft.getItemRenderer().renderItemAndEffectIntoGUI(this.container.getFurnishings().get(index - 1), tx + 1, ty + 1);
             }
         }
         RenderHelper.disableStandardItemLighting();
     }
 
     private int computeScrollOffset() {
-        return 1 + (int) (this.scroll * (this.items.size() / COLUMNS) + 0.5D) * COLUMNS;
+        return 1 + (int) (this.scroll * (this.container.getFurnishings().size() / COLUMNS) + 0.5D) * COLUMNS;
     }
 
     @Override
@@ -145,7 +109,8 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
             double x = mouseX - (gridX + i % COLUMNS * TILE);
             double y = mouseY - (gridY + i / COLUMNS * TILE);
             int ordinal = offset + i;
-            if (ordinal <= this.items.size() && ordinal != this.container.getSelection() && x >= 0 && y >= 0 && x < TILE && y < TILE && this.container.enchantItem(this.minecraft.player, ordinal)) {
+            if (ordinal <= this.container.getFurnishings().size() && ordinal != this.container.getSelection() && x >= 0 && y >= 0 && x < TILE && y < TILE && this.container.enchantItem(this.minecraft.player, ordinal)) {
+                // TODO: select sound
                 Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEvents.UI_LOOM_SELECT_PATTERN, 1.0F));
                 this.minecraft.playerController.sendEnchantPacket(this.container.windowId, ordinal);
                 return true;
@@ -175,46 +140,8 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         if (this.canScroll()) {
-            this.scroll = MathHelper.clamp((float) (this.scroll - delta / (this.items.size() / COLUMNS)), 0.0F, 1.0F);
+            this.scroll = MathHelper.clamp((float) (this.scroll - delta / (this.container.getFurnishings().size() / COLUMNS)), 0.0F, 1.0F);
         }
         return true;
-    }
-
-    @Override
-    public void rootAdvancementAdded(Advancement advancement) {
-    }
-
-    @Override
-    public void rootAdvancementRemoved(Advancement advancement) {
-    }
-
-    @Override
-    public void nonRootAdvancementAdded(Advancement advancement) {
-    }
-
-    @Override
-    public void nonRootAdvancementRemoved(Advancement advancement) {
-    }
-
-    @Override
-    public void advancementsCleared() {
-        this.items.clear();
-    }
-
-    @Override
-    public void onUpdateAdvancementProgress(Advancement advancement, AdvancementProgress progress) {
-        Advancement parent = advancement.getParent();
-        if (parent != null && parent.getId().equals(new ResourceLocation(Things.ID, "furnishing/root")) && progress.isDone()) {
-            String p = advancement.getId().getPath();
-            final Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(advancement.getId().getNamespace(), p.substring(p.indexOf('/') + 1)));
-            if (item != Items.AIR) {
-                this.items.add(new ItemStack(item));
-                this.items.sort(Comparator.comparing(stack -> stack.getItem().getRegistryName()));
-            }
-        }
-    }
-
-    @Override
-    public void setSelectedTab(@Nullable Advancement advancement) {
     }
 }

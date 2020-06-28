@@ -16,6 +16,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
+import java.util.List;
+
 public class FurnishingStationContainer extends Container {
     private final IWorldPosCallable position;
 
@@ -29,11 +31,13 @@ public class FurnishingStationContainer extends Container {
 
     private final Slot output;
 
+    private final UnlockedFurnishing furnishing;
+
     public FurnishingStationContainer(int id, PlayerInventory player) {
         this(id, player, new ItemStackHandler(4), IWorldPosCallable.DUMMY);
     }
 
-    public FurnishingStationContainer(int id, PlayerInventory player, IItemHandler station, IWorldPosCallable position) {
+    public FurnishingStationContainer(int id, PlayerInventory inventory, IItemHandler station, IWorldPosCallable position) {
         super(ThingsContainers.FURNISHING_STATION.orElseThrow(IllegalStateException::new), id);
         this.position = position;
         this.redDyeSlot = this.addSlot(new SlotItemHandler(station, 0, 11, 15) {
@@ -66,7 +70,7 @@ public class FurnishingStationContainer extends Container {
                 FurnishingStationContainer.this.yellowDyeSlot.decrStackSize(1);
                 FurnishingStationContainer.this.blueDyeSlot.decrStackSize(1);
                 position.consume((world, pos) -> {
-                    // TODO
+                    // TODO: take sound
                     world.playSound(null, pos, SoundEvents.UI_LOOM_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 });
                 return super.onTake(thePlayer, stack);
@@ -74,13 +78,19 @@ public class FurnishingStationContainer extends Container {
         });
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                this.addSlot(new Slot(player, col + row * 9 + 9, 8 + col * 18, 84 + row * 18));
+                this.addSlot(new Slot(inventory, col + row * 9 + 9, 8 + col * 18, 84 + row * 18));
             }
         }
         for (int col = 0; col < 9; col++) {
-            this.addSlot(new Slot(player, col, 8 + col * 18, 142));
+            this.addSlot(new Slot(inventory, col, 8 + col * 18, 142));
         }
         this.trackInt(this.selection);
+        this.furnishing = UnlockedFurnishing.get(inventory.player);
+        this.furnishing.init();
+    }
+
+    public List<? extends ItemStack> getFurnishings() {
+        return this.furnishing.getItems();
     }
 
     public Slot getRedDyeSlot() {
@@ -106,14 +116,12 @@ public class FurnishingStationContainer extends Container {
 
     @Override
     public boolean enchantItem(PlayerEntity player, int value) {
-        // TODO
-        if (value > 0 && value <= 16) {
+        if (value > 0 && value <= this.furnishing.getItems().size()) {
             this.selection.set(value);
             this.updateOutput();
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Override
@@ -170,9 +178,16 @@ public class FurnishingStationContainer extends Container {
         super.onCraftMatrixChanged(inventory);
     }
 
-    private void updateOutput() {
-        if (this.selection.get() > 0) {
+    @Override
+    public void onContainerClosed(PlayerEntity player) {
+        super.onContainerClosed(player);
+        this.furnishing.remove();
+    }
 
+    private void updateOutput() {
+        int selection = this.selection.get();
+        if (selection > 0 && selection <= this.furnishing.getItems().size()) {
+            this.output.putStack(this.furnishing.getItems().get(selection - 1));
         } else {
             this.output.putStack(ItemStack.EMPTY);
         }
