@@ -187,7 +187,7 @@ public class FurnishingStationContainer extends Container {
     private void updateOutput() {
         int selection = this.selection.get();
         if (selection > 0 && selection <= this.furnishing.getItems().size()) {
-            this.output.putStack(this.furnishing.getItems().get(selection - 1));
+            this.output.putStack(this.furnishing.getItems().get(selection - 1).copy());
         } else {
             this.output.putStack(ItemStack.EMPTY);
         }
