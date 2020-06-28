@@ -75,7 +75,9 @@ public class FurnishingStationScreen extends ContainerScreen<FurnishingStationCo
             int index = offset + i;
             if (index <= this.container.getFurnishings().size()) {
                 int v = this.ySize;
-                if (index == this.container.getSelection()) {
+                if (index > 0 && !this.container.canCreate(this.container.getFurnishings().get(index - 1))) {
+                    v += 3 * TILE;
+                } else if (index == this.container.getSelection()) {
                     v += TILE;
                 } else if (mouseX >= tx && mouseY >= ty && mouseX < tx + TILE && mouseY < ty + TILE) {
                     v += 2 * TILE;
