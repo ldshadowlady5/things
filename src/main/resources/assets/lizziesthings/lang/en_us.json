@@ -1,5 +1,6 @@
 {
     "itemGroup.lizziesthings":"Lizzie's Things",
+    "entity.lizziesthings.chair": "Chair",
     "block.lizziesthings.furnishing_station":"Furnishing Station",
     "block.lizziesthings.gravestone_moon":"Moon Gravestone",
     "block.lizziesthings.gravestone_skull":"Skull Gravestone",

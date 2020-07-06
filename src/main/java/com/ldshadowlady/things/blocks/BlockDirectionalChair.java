@@ -2,7 +2,8 @@ package com.ldshadowlady.things.blocks;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.ldshadowlady.things.common.VoxelShapeUtils;
+import com.ldshadowlady.things.entities.ChairEntity;
+import com.ldshadowlady.things.entities.ThingsEntities;
 import com.ldshadowlady.things.util.VoxelShapeHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -10,9 +11,9 @@ import net.minecraft.block.HorizontalBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.StateContainer;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -37,6 +38,26 @@ public class BlockDirectionalChair extends HorizontalBlock {
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite().getOpposite());
+    }
+
+    @Override
+    public boolean onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+        if (world.getEntitiesWithinAABB(ChairEntity.class, new AxisAlignedBB(pos)).isEmpty()) {
+            ChairEntity chair = ThingsEntities.CHAIR.orElseThrow(IllegalStateException::new).create(world);
+            if (chair != null) {
+                chair.setLocationAndAngles(pos.getX() + 0.5D, pos.getY() + 0.25D, pos.getZ() + 0.5D, 0.0F, 0.0F);
+                return world.addEntity(chair) && player.startRiding(chair);
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+        super.onReplaced(state, world, pos, newState, isMoving);
+        for (ChairEntity entity : world.getEntitiesWithinAABB(ChairEntity.class, new AxisAlignedBB(pos))) {
+            entity.remove();
+        }
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> state) {
