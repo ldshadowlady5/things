@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:blue_wooden_window_box_tulip"
+    ]
+  },
+  "criteria": {
+    "has_wooden_window_box": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:wooden_window_box_tulip"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:blue_wooden_window_box_tulip"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_window_box",
+      "has_the_recipe"
+    ]
+  ]
+}

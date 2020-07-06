@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SIS",
+    "BBB"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "I": {
+      "item": "minecraft:oxeye_daisy"
+    },
+    "B": {
+      "item": "minecraft:brick_slab"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:gravestone_heart"
+  }
+}

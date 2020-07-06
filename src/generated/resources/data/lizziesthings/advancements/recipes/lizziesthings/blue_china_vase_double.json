@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:blue_china_vase_double"
+    ]
+  },
+  "criteria": {
+    "has_one_vase": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:blue_china_vase_short"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:blue_china_vase_double"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_one_vase",
+      "has_the_recipe"
+    ]
+  ]
+}

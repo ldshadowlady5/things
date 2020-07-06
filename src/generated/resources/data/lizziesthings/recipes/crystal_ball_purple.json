@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "PGP",
+    "III"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:purple_stained_glass_pane"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:crystal_ball_purple"
+  }
+}

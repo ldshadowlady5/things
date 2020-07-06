@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LBL",
+    "BGB",
+    "III"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lime_dye"
+    },
+    "B": {
+      "item": "minecraft:light_blue_dye"
+    },
+    "G": {
+      "item": "minecraft:glowstone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:globe_iron"
+  }
+}

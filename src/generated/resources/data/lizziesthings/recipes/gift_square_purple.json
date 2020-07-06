@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "YRY",
+    "P P",
+    "RPR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:purple_dye"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "Y": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:gift_square_purple"
+  }
+}

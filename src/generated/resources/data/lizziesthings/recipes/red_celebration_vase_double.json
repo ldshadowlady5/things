@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lizziesthings:red_celebration_vase_short"
+    },
+    {
+      "item": "lizziesthings:red_celebration_vase_tall"
+    }
+  ],
+  "result": {
+    "item": "lizziesthings:red_celebration_vase_double"
+  }
+}

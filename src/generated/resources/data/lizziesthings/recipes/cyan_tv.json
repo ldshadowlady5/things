@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CWC",
+    "WTW",
+    "CWC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:cyan_dye"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    },
+    "T": {
+      "item": "lizziesthings:tv"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:cyan_tv"
+  }
+}

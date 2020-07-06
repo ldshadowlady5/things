@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DBD",
+    "DDD"
+  ],
+  "key": {
+    "B": {
+      "item": "lizziesthings:wooden_window_box_tulip"
+    },
+    "D": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:blue_wooden_window_box_tulip"
+  }
+}

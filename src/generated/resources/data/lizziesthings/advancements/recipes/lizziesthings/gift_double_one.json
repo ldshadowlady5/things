@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:gift_double_one"
+    ]
+  },
+  "criteria": {
+    "has_one_gift": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:gift_tall_red"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:gift_double_one"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_one_gift",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:gravestone_moon"
+    ]
+  },
+  "criteria": {
+    "has_clock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:clock"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:gravestone_moon"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_clock",
+      "has_the_recipe"
+    ]
+  ]
+}

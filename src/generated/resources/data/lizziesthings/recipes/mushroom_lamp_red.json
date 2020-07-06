@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "MGM",
+    " S "
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:red_mushroom_block"
+    },
+    "G": {
+      "item": "minecraft:glowstone"
+    },
+    "S": {
+      "item": "minecraft:mushroom_stem"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:mushroom_lamp_red"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:keyboard_stand"
+    ]
+  },
+  "criteria": {
+    "has_keyboard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:keyboard"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:keyboard_stand"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_keyboard",
+      "has_the_recipe"
+    ]
+  ]
+}

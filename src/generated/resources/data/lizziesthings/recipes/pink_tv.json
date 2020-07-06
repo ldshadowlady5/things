@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WDW",
+    "PTP",
+    "WDW"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:pink_dye"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    },
+    "P": {
+      "item": "minecraft:peony"
+    },
+    "T": {
+      "item": "lizziesthings:tv"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:pink_tv"
+  }
+}

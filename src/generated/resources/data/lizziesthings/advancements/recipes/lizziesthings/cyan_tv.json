@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:cyan_tv"
+    ]
+  },
+  "criteria": {
+    "has_tv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:tv"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:cyan_tv"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tv",
+      "has_the_recipe"
+    ]
+  ]
+}

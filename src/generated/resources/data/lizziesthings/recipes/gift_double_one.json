@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lizziesthings:gift_tall_red"
+    },
+    {
+      "item": "lizziesthings:gift_square_purple"
+    }
+  ],
+  "result": {
+    "item": "lizziesthings:gift_double_one"
+  }
+}

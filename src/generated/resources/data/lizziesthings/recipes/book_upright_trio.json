@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "lizziesthings:book_upright_single"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:book_upright_trio"
+  }
+}

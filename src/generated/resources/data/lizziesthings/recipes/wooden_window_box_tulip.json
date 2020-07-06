@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WRP",
+    "SDS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:oak_slab"
+    },
+    "D": {
+      "item": "minecraft:dirt"
+    },
+    "W": {
+      "item": "minecraft:white_tulip"
+    },
+    "R": {
+      "item": "minecraft:red_tulip"
+    },
+    "P": {
+      "item": "minecraft:pink_tulip"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:wooden_window_box_tulip"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "lizziesthings:book_laid_single"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:book_laid_triple"
+  }
+}

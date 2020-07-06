@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TS"
+  ],
+  "key": {
+    "T": {
+      "item": "lizziesthings:book_magic_upright_trio"
+    },
+    "S": {
+      "item": "lizziesthings:book_magic_upright_single"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:book_magic_upright_four"
+  }
+}
