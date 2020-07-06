@@ -62,5 +62,15 @@ public final class ThingsBlocks {
     public static final RegistryObject<BlockDirectionalTransparency> PINK_WOODEN_WINDOW_BOX_TULIP = REG.register("pink_wooden_window_box_tulip", () -> new BlockDirectionalTransparency(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE), Block.makeCuboidShape(0.0D, 9.0D, 0.0D, 16.0D, 16.0D, 6.0D)));
     public static final RegistryObject<BlockDirectionalTransparency> YELLOW_WOODEN_WINDOW_BOX_TULIP = REG.register("yellow_wooden_window_box_tulip", () -> new BlockDirectionalTransparency(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE), Block.makeCuboidShape(0.0D, 9.0D, 0.0D, 16.0D, 16.0D, 6.0D)));
 
+    public static final RegistryObject<BlockDirectionalChair> FROGGY_CHAIR = REG.register("froggy_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> PINK_CHAIR = REG.register("pink_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> CYAN_CHAIR = REG.register("cyan_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> LIGHT_BLUE_CHAIR = REG.register("light_blue_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> PURPLE_CHAIR = REG.register("purple_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> WHITE_CHAIR = REG.register("white_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> YELLOW_CHAIR = REG.register("yellow_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> HOT_PINK_CHAIR = REG.register("hot_pink_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+    public static final RegistryObject<BlockDirectionalChair> GREEN_CHAIR = REG.register("green_chair", () -> new BlockDirectionalChair(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE)));
+
 
 }

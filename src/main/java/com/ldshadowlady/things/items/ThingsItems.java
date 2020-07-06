@@ -69,6 +69,15 @@ public final class ThingsItems {
     public static final RegistryObject<ThingsBlockItem> PINK_WOODEN_WINDOW_BOX_TULIP = REG.register("pink_wooden_window_box_tulip", ThingsItems.create(ThingsBlocks.PINK_WOODEN_WINDOW_BOX_TULIP, f -> f.group("window_box")));
     public static final RegistryObject<ThingsBlockItem> YELLOW_WOODEN_WINDOW_BOX_TULIP = REG.register("yellow_wooden_window_box_tulip", ThingsItems.create(ThingsBlocks.YELLOW_WOODEN_WINDOW_BOX_TULIP, f -> f.group("window_box")));
 
+    public static final RegistryObject<ThingsBlockItem> FROGGY_CHAIR = REG.register("froggy_chair", ThingsItems.create(ThingsBlocks.FROGGY_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> PINK_CHAIR = REG.register("pink_chair", ThingsItems.create(ThingsBlocks.PINK_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> CYAN_CHAIR = REG.register("cyan_chair", ThingsItems.create(ThingsBlocks.CYAN_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> LIGHT_BLUE_CHAIR = REG.register("light_blue_chair", ThingsItems.create(ThingsBlocks.LIGHT_BLUE_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> PURPLE_CHAIR = REG.register("purple_chair", ThingsItems.create(ThingsBlocks.PURPLE_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> WHITE_CHAIR = REG.register("white_chair", ThingsItems.create(ThingsBlocks.WHITE_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> YELLOW_CHAIR = REG.register("yellow_chair", ThingsItems.create(ThingsBlocks.YELLOW_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> HOT_PINK_CHAIR = REG.register("hot_pink_chair", ThingsItems.create(ThingsBlocks.HOT_PINK_CHAIR, f -> f.group("chair")));
+    public static final RegistryObject<ThingsBlockItem> GREEN_CHAIR = REG.register("green_chair", ThingsItems.create(ThingsBlocks.GREEN_CHAIR, f -> f.group("chair")));
 
     public static final ItemGroup THINGS = new ThingsItemGroup();
 

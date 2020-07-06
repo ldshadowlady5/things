@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "extcaves:block/block_base",
 	"textures": {
 		"0": "lizziesthings:block/red_celebration_vase",
 		"particle": "lizziesthings:block/red_celebration_vase"
