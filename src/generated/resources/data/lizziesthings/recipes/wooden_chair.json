@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F  ",
+    "SS ",
+    "FF "
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:oak_fence"
+    },
+    "S": {
+      "item": "minecraft:oak_slab"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:wooden_chair"
+  }
+}

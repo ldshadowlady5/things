@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_silver_play_button": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:silver_play_button"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_silver_play_button"
+    ]
+  ]
+}

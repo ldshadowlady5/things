@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_red_spruce_deck_chair": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:red_spruce_deck_chair"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_red_spruce_deck_chair"
+    ]
+  ]
+}

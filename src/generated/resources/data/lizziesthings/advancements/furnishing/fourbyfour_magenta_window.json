@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_fourbyfour_magenta_window": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:fourbyfour_magenta_window"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_fourbyfour_magenta_window"
+    ]
+  ]
+}

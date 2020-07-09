@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:stew_pot"
+    ]
+  },
+  "criteria": {
+    "has_rabbit_stew": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:rabbit_stew"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:stew_pot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rabbit_stew",
+      "has_the_recipe"
+    ]
+  ]
+}

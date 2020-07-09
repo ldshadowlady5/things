@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:hot_pink_table"
+    ]
+  },
+  "criteria": {
+    "has_wooden_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:wooden_table"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:hot_pink_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_table",
+      "has_the_recipe"
+    ]
+  ]
+}

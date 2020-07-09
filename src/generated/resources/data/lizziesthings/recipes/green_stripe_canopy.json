@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BRB"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:green_carpet"
+    },
+    "B": {
+      "item": "minecraft:white_carpet"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:green_stripe_canopy"
+  }
+}

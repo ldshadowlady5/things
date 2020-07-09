@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:wooden_chair"
+    ]
+  },
+  "criteria": {
+    "has_oak_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:oak_slab"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:wooden_chair"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_oak_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

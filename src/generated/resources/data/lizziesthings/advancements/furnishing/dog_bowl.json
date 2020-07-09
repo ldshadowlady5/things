@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_dog_bowl": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:dog_bowl"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_dog_bowl"
+    ]
+  ]
+}

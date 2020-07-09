@@ -52,9 +52,7 @@ public class BlockRotationalTransparency extends HorizontalBlock {
         return this.Shape;
     }
 
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
+    public BlockRenderLayer getRenderLayer() {return BlockRenderLayer.CUTOUT;}
 
 
 }

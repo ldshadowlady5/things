@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WD"
+  ],
+  "key": {
+    "W": {
+      "item": "lizziesthings:fourbyfour_wooden_window"
+    },
+    "D": {
+      "item": "minecraft:yellow_dye"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:fourbyfour_yellow_window"
+  }
+}

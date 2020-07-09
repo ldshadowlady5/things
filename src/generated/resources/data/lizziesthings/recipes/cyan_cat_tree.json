@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    " F ",
+    " S "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:cyan_carpet"
+    },
+    "F": {
+      "item": "minecraft:birch_fence"
+    },
+    "S": {
+      "item": "minecraft:birch_slab"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:cyan_cat_tree"
+  }
+}

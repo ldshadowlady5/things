@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WD"
+  ],
+  "key": {
+    "W": {
+      "item": "lizziesthings:small_wooden_window"
+    },
+    "D": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:small_black_window"
+  }
+}

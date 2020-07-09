@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_red_pet_bed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:red_pet_bed"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_red_pet_bed"
+    ]
+  ]
+}

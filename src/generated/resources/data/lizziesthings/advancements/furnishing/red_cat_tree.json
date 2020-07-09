@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_red_cat_tree": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:red_cat_tree"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_red_cat_tree"
+    ]
+  ]
+}

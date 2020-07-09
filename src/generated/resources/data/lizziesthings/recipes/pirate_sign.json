@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SK"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:oak_sign"
+    },
+    "K": {
+      "item": "minecraft:skeleton_skull"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:pirate_sign"
+  }
+}

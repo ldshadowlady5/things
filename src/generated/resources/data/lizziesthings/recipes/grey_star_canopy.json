@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GRG"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:gray_carpet"
+    },
+    "G": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:grey_star_canopy"
+  }
+}

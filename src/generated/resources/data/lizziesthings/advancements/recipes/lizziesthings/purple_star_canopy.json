@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:purple_star_canopy"
+    ]
+  },
+  "criteria": {
+    "has_purple_carpet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:purple_carpet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:purple_star_canopy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_purple_carpet",
+      "has_the_recipe"
+    ]
+  ]
+}

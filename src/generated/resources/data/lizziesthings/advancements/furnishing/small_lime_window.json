@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_small_lime_window": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:small_lime_window"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_small_lime_window"
+    ]
+  ]
+}

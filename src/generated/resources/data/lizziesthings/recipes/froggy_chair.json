@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DSD",
+    "SCS",
+    "DSD"
+  ],
+  "key": {
+    "C": {
+      "item": "lizziesthings:wooden_chair"
+    },
+    "D": {
+      "item": "minecraft:lime_dye"
+    },
+    "S": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:froggy_chair"
+  }
+}

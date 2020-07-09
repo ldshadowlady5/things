@@ -1,0 +1,20 @@
+{
+  "parent": "lizziesthings:furnishing/root",
+  "criteria": {
+    "get_purple_chair": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "lizziesthings:purple_chair"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_purple_chair"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GRG"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:pink_carpet"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "lizziesthings:pink_star_canopy"
+  }
+}

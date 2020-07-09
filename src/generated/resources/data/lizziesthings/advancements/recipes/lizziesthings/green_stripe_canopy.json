@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:green_stripe_canopy"
+    ]
+  },
+  "criteria": {
+    "has_white_carpet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:white_carpet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:green_stripe_canopy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_white_carpet",
+      "has_the_recipe"
+    ]
+  ]
+}
