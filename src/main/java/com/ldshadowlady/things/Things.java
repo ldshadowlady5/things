@@ -8,10 +8,14 @@ import com.ldshadowlady.things.container.ThingsContainers;
 import com.ldshadowlady.things.data.ThingsData;
 import com.ldshadowlady.things.entities.ChairEntity;
 import com.ldshadowlady.things.entities.ThingsEntities;
+import com.ldshadowlady.things.entities.ai.LieOnCatBedGoal;
 import com.ldshadowlady.things.items.ThingsItems;
 import com.ldshadowlady.things.lists.SoundList;
+import com.ldshadowlady.things.util.GoalAdder;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.entity.passive.CatEntity;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -35,6 +39,9 @@ public class Things {
         ThingsBlockEntities.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
         ThingsContainers.REG.register(FMLJavaModLoadingContext.get().getModEventBus());
         ThingsData.register(FMLJavaModLoadingContext.get().getModEventBus());
+        GoalAdder.mobGoal(CatEntity.class)
+            .add(5, cat -> new LieOnCatBedGoal(cat, 1.1D, 8))
+            .build(MinecraftForge.EVENT_BUS);
         DistExecutor.runWhenOn(Dist.CLIENT, () -> Client::init);
     }
 

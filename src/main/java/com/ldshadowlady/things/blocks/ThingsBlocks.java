@@ -3,6 +3,9 @@ package com.ldshadowlady.things.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.math.shapes.IBooleanFunction;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -119,10 +122,10 @@ public final class ThingsBlocks {
     public static final RegistryObject<BlockDirectional> RED_CAT_TREE = REG.register("red_cat_tree", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 15.0D, 13.0D)));
     public static final RegistryObject<BlockRotational> COFFEE_MUG = REG.register("coffee_mug", () -> new BlockRotational(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 4.0D, 10.0D)));
     public static final RegistryObject<BlockRotational> DOG_BOWL = REG.register("dog_bowl", () -> new BlockRotational(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 3.0D, 13.0D)));
-    public static final RegistryObject<BlockDirectional> PINK_PET_BED = REG.register("pink_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D)));
-    public static final RegistryObject<BlockDirectional> RED_PET_BED = REG.register("red_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D)));
-    public static final RegistryObject<BlockDirectional> WHITE_PET_BED = REG.register("white_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D)));
-    public static final RegistryObject<BlockDirectional> CYAN_PET_BED = REG.register("cyan_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D)));
+    public static final RegistryObject<BlockDirectional> PINK_PET_BED = REG.register("pink_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), petBed()));
+    public static final RegistryObject<BlockDirectional> RED_PET_BED = REG.register("red_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), petBed()));
+    public static final RegistryObject<BlockDirectional> WHITE_PET_BED = REG.register("white_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), petBed()));
+    public static final RegistryObject<BlockDirectional> CYAN_PET_BED = REG.register("cyan_pet_bed", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), petBed()));
     public static final RegistryObject<BlockRotational> GOLD_PLAY_BUTTON = REG.register("gold_play_button", () -> new BlockRotational(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 7.0D, 13.0D)));
     public static final RegistryObject<BlockRotational> SILVER_PLAY_BUTTON = REG.register("silver_play_button", () -> new BlockRotational(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 7.0D, 13.0D)));
 
@@ -133,6 +136,8 @@ public final class ThingsBlocks {
     public static final RegistryObject<BlockDirectional> GREEN_STRIPE_CANOPY = REG.register("green_stripe_canopy", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 7.0D, 11.0D)));
     public static final RegistryObject<BlockDirectional> MAGENTA_STRIPE_CANOPY = REG.register("magenta_stripe_canopy", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 7.0D, 11.0D)));
 
-
+    private static VoxelShape petBed() {
+        return VoxelShapes.combine(Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.makeCuboidShape(1.0D, 1.75D, 1.0D, 15.0D, 4.0D, 15.0D), IBooleanFunction.ONLY_FIRST);
+    }
 
 }
