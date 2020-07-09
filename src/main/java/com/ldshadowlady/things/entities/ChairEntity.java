@@ -1,6 +1,8 @@
 package com.ldshadowlady.things.entities;
 
 import com.ldshadowlady.things.blocks.BlockDirectionalChair;
+import com.ldshadowlady.things.blocks.BlockDirectionalDeckChair;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MoverType;
@@ -31,7 +33,9 @@ public class ChairEntity extends Entity {
     }
 
     private boolean hasValidPosition() {
-        return !this.world.isBlockPresent(new BlockPos(this)) || this.world.getBlockState(new BlockPos(this)).getBlock() instanceof BlockDirectionalChair;
+        if (!this.world.isBlockPresent(new BlockPos(this))) return true;
+        Block block = this.world.getBlockState(new BlockPos(this)).getBlock();
+        return block instanceof BlockDirectionalChair || block instanceof BlockDirectionalDeckChair;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class BlockDirectionalDeckChair extends HorizontalBlock {
         if (world.getEntitiesWithinAABB(ChairEntity.class, new AxisAlignedBB(pos)).isEmpty()) {
             ChairEntity chair = ThingsEntities.CHAIR.orElseThrow(IllegalStateException::new).create(world);
             if (chair != null) {
-                chair.setLocationAndAngles(pos.getX() + 0.5D, pos.getY() + 0.1D, pos.getZ() + 0.5D, 0.0F, 0.0F);
+                chair.setLocationAndAngles(pos.getX() + 0.5D, pos.getY() + 0.01D, pos.getZ() + 0.5D, 0.0F, 0.0F);
                 return world.addEntity(chair) && player.startRiding(chair);
             }
         }
