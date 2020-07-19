@@ -1,5 +1,6 @@
 {
     "credit": "Made with Blockbench",
+    "ambientocclusion": false,
     "textures": {
         "0": "lizziesthings:block/green_deck_chair",
         "1": "lizziesthings:block/spruce_deck_chair",

@@ -1,5 +1,6 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "ambientocclusion": false,
     "texture_size": [32, 32],
     "textures": {
         "1": "lizziesthings:block/cyan_chair",

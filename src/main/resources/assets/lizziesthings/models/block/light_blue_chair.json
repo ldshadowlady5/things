@@ -1,6 +1,7 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "texture_size": [32, 32],
+    "ambientocclusion": false,
     "textures": {
         "1": "lizziesthings:block/light_blue_chair",
         "particle": "lizziesthings:block/light_blue_chair"
