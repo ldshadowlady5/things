@@ -3,7 +3,7 @@
   "pattern": [
     "III",
     " G ",
-    "WWW"
+    "III"
   ],
   "key": {
     "I": {
@@ -11,9 +11,6 @@
     },
     "G": {
       "item": "minecraft:glass_pane"
-    },
-    "W": {
-      "item": "minecraft:oak_planks"
     }
   },
   "result": {

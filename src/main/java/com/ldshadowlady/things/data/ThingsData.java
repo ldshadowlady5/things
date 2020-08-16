@@ -905,10 +905,9 @@ public class ThingsData {
             ShapedRecipeBuilder.shapedRecipe(get(ThingsItems.COFFEE_MACHINE))
                     .patternLine("III")
                     .patternLine(" G ")
-                    .patternLine("WWW")
+                    .patternLine("III")
                     .key('I', Items.IRON_INGOT)
                     .key('G', Items.GLASS_PANE)
-                    .key('W', Items.OAK_PLANKS)
                     .addCriterion("has_glass_pane", this.hasItem(Items.GLASS_PANE))
                     .build(consumer);
         }
