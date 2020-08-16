@@ -117,6 +117,8 @@
     "block.lizziesthings.grey_star_canopy": "Grey Star Canopy",
     "block.lizziesthings.blue_stripe_canopy": "Blue Stripe Canopy",
     "block.lizziesthings.magenta_stripe_canopy": "Magenta Stripe Canopy",
-    "block.lizziesthings.green_stripe_canopy": "Green Stripe Canopy"
+    "block.lizziesthings.green_stripe_canopy": "Green Stripe Canopy",
+    "message.coffee_machine_error": "Only a trained professional may operate the coffee machine."
+
 }
 

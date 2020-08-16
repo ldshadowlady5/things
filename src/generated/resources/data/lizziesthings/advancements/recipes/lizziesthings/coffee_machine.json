@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "lizziesthings:coffee_machine"
+    ]
+  },
+  "criteria": {
+    "has_glass_pane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:glass_pane"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "lizziesthings:coffee_machine"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_glass_pane",
+      "has_the_recipe"
+    ]
+  ]
+}

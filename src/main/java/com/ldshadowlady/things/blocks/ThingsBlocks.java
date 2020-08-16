@@ -136,6 +136,9 @@ public final class ThingsBlocks {
     public static final RegistryObject<BlockDirectional> GREEN_STRIPE_CANOPY = REG.register("green_stripe_canopy", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 7.0D, 11.0D)));
     public static final RegistryObject<BlockDirectional> MAGENTA_STRIPE_CANOPY = REG.register("magenta_stripe_canopy", () -> new BlockDirectional(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 7.0D, 11.0D)));
 
+    public static final RegistryObject<BlockDirectionalCoffeeMachine> COFFEE_MACHINE = REG.register("coffee_machine", () -> new BlockDirectionalCoffeeMachine(Block.Properties.create(Material.WOOD).hardnessAndResistance(0.5F).sound(SoundType.WOOD), Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 7.0D, 12.0D)));
+
+
     private static VoxelShape petBed() {
         return VoxelShapes.combine(Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.makeCuboidShape(1.0D, 1.75D, 1.0D, 15.0D, 4.0D, 15.0D), IBooleanFunction.ONLY_FIRST);
     }

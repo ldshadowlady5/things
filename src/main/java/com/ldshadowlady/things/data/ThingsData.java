@@ -902,6 +902,15 @@ public class ThingsData {
                     .key('I', Items.IRON_INGOT)
                     .addCriterion("has_iron_ingot", this.hasItem(Items.IRON_INGOT))
                     .build(consumer);
+            ShapedRecipeBuilder.shapedRecipe(get(ThingsItems.COFFEE_MACHINE))
+                    .patternLine("III")
+                    .patternLine(" G ")
+                    .patternLine("WWW")
+                    .key('I', Items.IRON_INGOT)
+                    .key('G', Items.GLASS_PANE)
+                    .key('W', Items.OAK_PLANKS)
+                    .addCriterion("has_glass_pane", this.hasItem(Items.GLASS_PANE))
+                    .build(consumer);
         }
     }
 
@@ -1043,7 +1052,7 @@ public class ThingsData {
             this.dropSelf(ThingsBlocks.BLUE_STRIPE_CANOPY);
             this.dropSelf(ThingsBlocks.GREEN_STRIPE_CANOPY);
             this.dropSelf(ThingsBlocks.MAGENTA_STRIPE_CANOPY);
-
+            this.dropSelf(ThingsBlocks.COFFEE_MACHINE);
         }
 
         void dropSelf(RegistryObject<? extends Block> block) {

@@ -141,6 +141,7 @@ public final class ThingsItems {
     public static final RegistryObject<ThingsBlockItem> GREEN_STRIPE_CANOPY = REG.register("green_stripe_canopy", ThingsItems.create(ThingsBlocks.GREEN_STRIPE_CANOPY, f -> f.group("canopy").red(2).yellow(2).blue(2)));
     public static final RegistryObject<ThingsBlockItem> MAGENTA_STRIPE_CANOPY = REG.register("magenta_stripe_canopy", ThingsItems.create(ThingsBlocks.MAGENTA_STRIPE_CANOPY, f -> f.group("canopy").red(2).yellow(2).blue(2)));
 
+    public static final RegistryObject<ThingsBlockItem> COFFEE_MACHINE = REG.register("coffee_machine", ThingsItems.create(ThingsBlocks.COFFEE_MACHINE, f -> f.group("kitchen").red(6).yellow(12).blue(18)));
 
 
     public static final ItemGroup THINGS = new ThingsItemGroup();
