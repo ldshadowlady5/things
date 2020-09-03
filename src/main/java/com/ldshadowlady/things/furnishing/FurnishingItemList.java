@@ -5,7 +5,6 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -43,7 +42,7 @@ public class FurnishingItemList {
     public void accept(Advancement advancement, AdvancementProgress progress) {
         if (this.isFurnishing(advancement) && progress.isDone()) {
             Item item = this.getItem(advancement);
-            if (item != Items.AIR) {
+            if (item instanceof FurnishingItem && ((FurnishingItem) item).getFurnishing().hasDye()) {
                 this.items.add(new ItemStack(item));
                 this.items.sort(ORDER);
             }

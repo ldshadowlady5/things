@@ -34,6 +34,10 @@ public final class Furnishing {
         return this.blue;
     }
 
+    public boolean hasDye() {
+        return this.red > 0 || this.yellow > 0 || this.blue > 0;
+    }
+
     public static final class Builder {
         private String group;
 
