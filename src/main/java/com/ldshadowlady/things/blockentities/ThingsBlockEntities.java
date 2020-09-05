@@ -17,4 +17,8 @@ public final class ThingsBlockEntities {
     public static final RegistryObject<TileEntityType<FurnishingStationBlockEntity>> FURNISHING_STATION = REG.register("furnishing_station", () ->
         TileEntityType.Builder.create(FurnishingStationBlockEntity::new, ThingsBlocks.FURNISHING_STATION.orElseThrow(IllegalStateException::new)).build(null)
     );
+
+    public static final RegistryObject<TileEntityType<KeyboardBlockEntity>> KEYBOARD = REG.register("keyboard", () ->
+        TileEntityType.Builder.create(KeyboardBlockEntity::new, ThingsBlocks.KEYBOARD.orElseThrow(IllegalStateException::new)).build(null)
+    );
 }

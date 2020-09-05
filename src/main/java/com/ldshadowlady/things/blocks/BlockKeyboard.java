@@ -1,5 +1,6 @@
 package com.ldshadowlady.things.blocks;
 
+import com.ldshadowlady.things.blockentities.KeyboardBlockEntity;
 import com.ldshadowlady.things.common.VoxelShapeUtils;
 import com.ldshadowlady.things.lists.SoundList;
 import net.minecraft.block.Block;
@@ -9,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.StateContainer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
@@ -57,6 +59,16 @@ public class BlockKeyboard extends HorizontalBlock {
     }
 
     @Override
+    public boolean hasTileEntity(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new KeyboardBlockEntity();
+    }
+
+    @Override
     public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         switch (state.get(HORIZONTAL_FACING)) {
             case NORTH:
@@ -92,6 +104,10 @@ public class BlockKeyboard extends HorizontalBlock {
                 int note = new int[] { -1, 1, 3, 5, 6, 8, 10, 11, 13, 15, 17, 18, 20, 22 }[keyIndex];
                 if (note != -1) {
                     world.addBlockEvent(pos, this, 0, note);
+                    TileEntity entity = world.getTileEntity(pos);
+                    if (entity instanceof KeyboardBlockEntity) {
+                        ((KeyboardBlockEntity) entity).onPlay(player, note);
+                    }
                 }
             }
         }

@@ -119,7 +119,7 @@
     "block.lizziesthings.magenta_stripe_canopy": "Magenta Stripe Canopy",
     "block.lizziesthings.green_stripe_canopy": "Green Stripe Canopy",
     "block.lizziesthings.coffee_machine": "Coffee Machine",
-    "message.coffee_machine_error": "Only a trained professional may operate the coffee machine."
-
+    "message.coffee_machine_error": "Only a trained professional may operate the coffee machine.",
+    "things.true_shadow_cadet": "You have unlocked %1$s furnishings through your true Shadow Cadet prowess"
 }
 
